@@ -23,12 +23,12 @@ module.exports = {
       directory: path.join(__dirname, '/dist'),
       publicPath: '/',
     },
-    // proxy: [
-    //   {
-    //     context: ['/api'],
-    //     target: 'http://localhost:3000',
-    //   },
-    // ],
+    proxy: [
+      {
+        context: ['/api'],
+        target: 'http://localhost:3000',
+      },
+    ],
     compress: true,
     port: 8080,
   },
