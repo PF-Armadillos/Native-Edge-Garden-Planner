@@ -30,7 +30,8 @@ module.exports = {
       },
     ],
     compress: true,
-    port: 8080,
+    ///temporarily changed from 8080 because already in use
+    port: 9090,
   },
 
   module: {
