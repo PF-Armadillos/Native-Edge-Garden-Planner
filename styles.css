@@ -73,38 +73,40 @@ form labels */
 #width {
 }
 
-.plant-list {
+.plant-columns {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around; /* Distributes space evenly */
 }
 
-.plant-card {
-  flex: 1 1 30%; /* Flex-grow, Flex-shrink, Flex-basis */
-  margin: 10px;
+.column {
+  width: 30%; /* Each column takes up roughly one-third of the width */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 10px;
 }
 
+.plant-card {
+  margin: 10px 0; /* Spacing between cards */
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .plant-image-small {
-  width: 80px; /* Adjust the width to make the image smaller */
+  width: 80px; /* Small images for the cards */
   height: auto;
   margin-bottom: 10px;
 }
 
 .plant-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
-/* Responsive adjustments might be necessary if it looks too crowded on smaller screens */
 @media (max-width: 768px) {
-  .plant-card {
-    flex-basis: 100%;
+  .plant-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    width: 100%; /* Full width on smaller screens */
   }
 }
