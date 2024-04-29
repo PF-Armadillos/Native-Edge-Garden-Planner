@@ -3,6 +3,7 @@ import PlantCardSelect from './PlantCardSelect.jsx';
 import staticObject from '../staticObject.js';
 
 export default function SelectPlants() {
+<<<<<<< HEAD
   //fetch all plants from database via url
   return (
     <div className='plant-list'>
@@ -18,5 +19,5 @@ export default function SelectPlants() {
         key={plant._id}
       })}
     </div>
-  );
+  )
 }

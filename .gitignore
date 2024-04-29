@@ -31,3 +31,4 @@ pids
 
 #secrets
 confidential.js
+*.env
