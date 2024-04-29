@@ -21,9 +21,9 @@ const CreateGarden = () => {
   }
 
   return (
-    <div id="welcome" className="container">
+    <div id="create-con" className="container">
       <div id="welcome-header">
-        <h1>Welcome To The ShellScape Garden Planner</h1>
+        <h1>Welcome to ShellScape Garden Planner</h1>
         <h2>Complete the form below to get started!</h2>
       </div>
       <form id="welcome-form" onSubmit={handleSubmit}>

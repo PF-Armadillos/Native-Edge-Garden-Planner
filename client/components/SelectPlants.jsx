@@ -14,18 +14,50 @@ export default function SelectPlants() {
     Thumb: 'https://shellscape.s3.us-east-2.amazonaws.com/A_C_IMG2564.JPG',
   };
 
-  const { CommonName, Habit, Duration, Thumb, _id } = sampleTest;
 
+  //   "_id": "662fbb7313277adf58aeef0b",
+  //   "State": "New York",
+  //   "Species": "Adiantum pedatum",
+  //   "CommonName": "Northern Maidenhair Fern",
+  //   "Duration": "Perennial",
+  //   "Habit": "Fern",
+  //   "Light": "Shade, Part-shade",
+  //   "Water": "Moist",
+  //   "Thumb": "https://shellscape.s3.us-east-2.amazonaws.com/A_C_IMG3197.JPG"
+  // },
+  const { CommonName, Habit, Duration, Thumb, _id } = sampleTest;
+  const testarr= [    <PlantCard
+    commonName={CommonName}
+    habit={Habit}
+    duration={Duration}
+    image={Thumb}
+    plantId={_id}
+  />,
+  <PlantCard
+    commonName={"Northern Maidenhair Fern"}
+    habit={Habit}
+    duration={Duration}
+    image={Thumb}
+    plantId={_id}
+  />,
+  <PlantCard
+      commonName={CommonName}
+      habit={Habit}
+      duration={Duration}
+      image={Thumb}
+      plantId={_id}
+    />,
+  <PlantCard
+      commonName={CommonName}
+      habit={Habit}
+      duration={Duration}
+      image={Thumb}
+      plantId={_id}
+    />]
   return (
     <>
-      <div>
-        <PlantCard
-          commonName={CommonName}
-          habit={Habit}
-          duration={Duration}
-          image={Thumb}
-          plantId={_id}
-        />
+      <div className='PlantContainer'>
+        {testarr}
       </div>
     </>
   );
