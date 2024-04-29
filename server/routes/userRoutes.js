@@ -12,7 +12,7 @@ userRouter.post('/', userControllers.createUser, (req,res) =>{
 //userRouter.put('/', userControllers.updatePassword);
 
 
-//test routes 
+//test routes ""
 //test A : Show full Database Table
 userRouter.get('/',userControllers.showTable);
 
