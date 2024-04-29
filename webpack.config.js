@@ -29,9 +29,8 @@ module.exports = {
         target: 'http://localhost:3000',
       },
     ],
-    compress: true,
-    ///temporarily changed from 8080 because already in use
-    port: 9090,
+    compress: true, 
+    port: 8080,
   },
 
   module: {
