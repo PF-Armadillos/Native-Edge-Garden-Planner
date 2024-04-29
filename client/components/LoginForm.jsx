@@ -32,8 +32,8 @@ export default function LoginForm() {
         <InputLabel for='username' value='User Name: ' />
         <TextInput
           id='username'
-          className='mt-1 block w-full'
-          value={data}
+          className='text-input'
+          value={username}
           handleChange={(e) => setUsername(e.target.value)}
           required
           isFocused
@@ -43,14 +43,15 @@ export default function LoginForm() {
         <InputLabel for='password' value='Password: ' />
         <TextInput
           id='username'
-          className='mt-1 block w-full'
-          value={data}
+          className='text-input'
+          value={password}
           handleChange={(e) => setPassword(e.target.value)}
           required
           isFocused
         />
         <InputError for='password' value='password' />
       </form>
+      <button type='submit'>Login</button>
     </div>
   );
 }
