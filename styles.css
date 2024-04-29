@@ -1,3 +1,13 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+.card {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f13b3b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
