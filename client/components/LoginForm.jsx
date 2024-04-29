@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TextInput from './TextInput.jsx';
 import InputError from './InputError.jsx';
 import InputLabel from './InputLabel.jsx';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm() {
   const [username, setUsername] = useState('');
@@ -26,32 +27,39 @@ export default function LoginForm() {
     }
   };
 
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/CreateGarden');
+  }
   return (
     <div>
-      <form className='login-form' onSubmit={submit}>
-        <InputLabel for='username' value='User Name: ' />
+      <form className="login-form" onSubmit={submit}>
+        <InputLabel for="username" value="User Name: " />
         <TextInput
-          id='username'
-          className='text-input'
+          id="username"
+          className="text-input"
           value={username}
           handleChange={(e) => setUsername(e.target.value)}
           required
           isFocused
         />
-        <InputError for='username' value='username' />
+        <InputError for="username" value="username" />
 
-        <InputLabel for='password' value='Password: ' />
+        <InputLabel for="password" value="Password: " />
         <TextInput
-          id='username'
-          className='text-input'
+          id="username"
+          className="text-input"
           value={password}
           handleChange={(e) => setPassword(e.target.value)}
           required
           isFocused
         />
-        <InputError for='password' value='password' />
+        <InputError for="password" value="password" />
       </form>
-      <button type='submit'>Login</button>
+      <button onClick={handleClick} type="submit">
+        Login
+      </button>
     </div>
   );
 }
