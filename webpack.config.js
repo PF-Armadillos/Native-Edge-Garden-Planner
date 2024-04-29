@@ -29,7 +29,7 @@ module.exports = {
         target: 'http://localhost:3000',
       },
     ],
-    compress: true,
+    compress: true, 
     port: 8080,
   },
 
@@ -57,7 +57,7 @@ module.exports = {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'style-loader',
+          // 'style-loader',
           'css-loader',
           'postcss-loader',
         ],
