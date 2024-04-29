@@ -27,7 +27,7 @@ export const plantSlice = createSlice({
       state.lastPlantId++;
     },
     deselectPlant: (state, action) => {
-      delete state.selectedPlantList[action.payload.id];
+      delete state.selectedPlantList[action.payload];
     },
     setPlantList: (state, action) => {
       state.plantList = action.payload;

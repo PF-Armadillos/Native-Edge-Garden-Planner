@@ -20,7 +20,7 @@ plantDataController.getPlants = async (req, res, next) => {
   try {
     //get specific data
     const location = req.query.location;
-    const data = await Plant.findOne({});
+    const data = await Plant.find({ State: location });
     console.log(data);
     // if (data.length === 0)
     //   throw createErr({
