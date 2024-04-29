@@ -25,11 +25,11 @@ module.exports = {
     },
     proxy: [
       {
-        context: ['/api'],
+        context: ['/plant/'],
         target: 'http://localhost:3000',
       },
     ],
-    compress: true, 
+    compress: true,
     port: 8080,
   },
 

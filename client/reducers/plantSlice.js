@@ -1,12 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const map = new Map();
 export const plantSlice = createSlice({
   name: 'plants',
   initialState: {
-    //decide between object, map or array
     plantList: [],
-    selectedPlantList: map,
+    selectedPlantList: {},
     totalPlants: 0,
     totalArea: 0,
     lastPlantId: 0,
@@ -16,19 +14,22 @@ export const plantSlice = createSlice({
       state.selectedPlantList[action.payload.id].quantity += 1;
     },
     decrementPlant: (state, action) => {
-      state.selectedPlantList.get(action.payload.id).quantity -= 1;
+      state.selectedPlantList[action.payload.id].quantity -= 1;
     },
     selectPlant: (state, action) => {
       const id = lastPlantId + 1;
       const newPlant = { id: id, quantity: 0, area: 0 };
-      state.selectedPlantList.set(id, newPlant);
+      state.selectedPlantList[id] = newPlant;
       state.lastPlantId++;
     },
     deselectPlant: (state, action) => {
-      delete state.selectedPlantList.delete(action.payload.id);
+      delete state.selectedPlantList[action.payload.id];
     },
     setPlantList: (state, action) => {
-      state.
+      state.plantList = action.payload;
+    },
+    setGardenArea: (state, action) => {
+      state.totalArea = action.payload;
     },
   },
 });
@@ -55,5 +56,7 @@ export const {
   decrementPlant,
   selectPlant,
   deselectPlant,
+  setPlantList,
+  setGardenArea,
 } = plantSlice.actions;
 export default plantSlice.reducer;

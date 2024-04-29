@@ -1,55 +1,61 @@
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setGardenArea, getPlantDataAsync } from './../reducers/plantSlice';
 
 const CreateGarden = () => {
   const [location, setLocation] = useState('');
   const [length, setLength] = useState('');
   const [width, setWidth] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Location:', location);
-    console.log('Length:', length);
-    console.log('Width:', width);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleSubmit = async (e) => {
+    console.log('Hello');
+    try {
+      e.preventDefault();
+      dispatch(getPlantDataAsync(location));
+      const area = length * width;
+      console.log(area);
+      dispatch(setGardenArea(area));
+      navigate('/SelectPlants');
+    } catch (error) {
+      // Log any errors that occur during the try block
+      console.error('Error fetching plant data:', error);
+    }
   };
 
-  const navigate = useNavigate();
-
-  function handleClick() {
-    navigate('/SelectPlants');
-  }
-
   return (
-    <div id="welcome" className="container">
-      <div id="welcome-header">
+    <div id='welcome' className='container'>
+      <div id='welcome-header'>
         <h1>Welcome To The ShellScape Garden Planner</h1>
         <h2>Complete the form below to get started!</h2>
       </div>
-      <form id="welcome-form" onSubmit={handleSubmit}>
+      <form id='welcome-form'>
         <label>Location</label>
         <input
-          type="text"
-          id="location"
+          type='text'
+          id='location'
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         ></input>
         <label>Length of garden bed (inches)</label>
         <input
-          type="text"
-          id="length"
+          type='text'
+          id='length'
           value={length}
           onChange={(e) => setLength(e.target.value)}
         ></input>
         <label>Width of garden bed (inches)</label>
         <input
-          type="text"
-          id="width"
+          type='text'
+          id='width'
           value={width}
           onChange={(e) => setWidth(e.target.value)}
         ></input>
-        <button onClick={handleClick} type="submit">
-          {' '}
+        <button onClick={handleSubmit} type='submit'>
           Submit
         </button>
       </form>
