@@ -27,18 +27,7 @@ export default function SelectPlants() {
   return (
     <div className='plant-list'>
       {array}
-      {/* {plantDatabase.map((plant) => {
-        <PlantCardSelect
-          commonName={plant.CommonName}
-          species={plant.Species}
-          duration={plant.Duration}
-          habit={plant.Habit}
-          image={plant.Thumb}
-          light={plant.Light}
-          water={plant.Water}
-          plantId={plant._id}
-          key={plant._id}
-        />;
-      })} */}
+      <button>Get to garden page</button>
     </div>
   );
+}

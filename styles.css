@@ -1,41 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 /* Classes */
+
 * {
   font-family: Roboto;
 }
 body {
   display: grid;
-  grid-template-columns:  repeat(7, 1fr);
-  grid-template-rows: 100px auto; 
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 100px auto;
   justify-items: center;
-  color: hsl(0,0%,38%);
+  color: hsl(0, 0%, 38%);
   width: 100%;
   margin: 0;
   padding: 0;
 }
-#navbar{
-  grid-row-start:1;
-  grid-row-end:2;
+#navbar {
+  grid-row-start: 1;
+  grid-row-end: 2;
   display: flex;
-  grid-column: 1/span 7;
+  grid-column: 1 / span 7;
   width: 100%;
   justify-content: center;
   align-items: center;
   background-color: #d4f4fa;
 }
-#loginform-con{
-  grid-row-start:2;
-  grid-row-end:3;
+#loginform-con {
+  grid-row-start: 2;
+  grid-row-end: 3;
   width: 100%;
 }
-h1{
-  color: hsl(0,0%,28%);
+h1 {
+  color: hsl(0, 0%, 28%);
   text-align: center;
 }
-h2{color: hsl(0,0%,38%);}
-button{
- 
+h2 {
+  color: hsl(0, 0%, 38%);
+  text-align: center;
+}
+button {
   background-color: hsl(143, 49%, 43%);
   border: none;
   border-radius: 5px;
@@ -49,52 +51,52 @@ button:hover {
   background-color: hsl(143, 49%, 33%);
   transition: 7ms;
 }
-button2{
+.button2 {
   background-color: none;
   font-size: 1.25em;
   padding: 10px;
   color: hsl(143, 49%, 43%);
   border-width: 2px;
-  border:hsl(143, 49%, 43%);
-  /* background-color: white; */
+  border: hsl(143, 49%, 43%);
+  background-color: white;
   border-radius: 5px;
 }
-button2:hover{
+.button2:hover {
   color: hsl(143, 51%, 23%);
 }
-.container{
-  grid-column-start:3;
-  grid-column-end:6;
-  background-color: hsl(38,100%,94%);
-  margin:70px;
+.container {
+  grid-column-start: 3;
+  grid-column-end: 6;
+  background-color: hsl(38, 100%, 94%);
+  margin: 70px;
   border-radius: 70px;
-  grid-row-start:2;
-  grid-row-end:3;
-  width:100%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding:20px;
+  padding: 20px;
 }
 
-#welcome-header{
+#welcome-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   /* margin:40px; */
-  margin-bottom:20px;
+  margin-bottom: 20px;
   text-align: center;
 }
-form{
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px;
 }
-label{
+label {
   margin-bottom: 2px;
 }
-input{
+input {
   margin-bottom: 15px;
   border-radius: 5px;
   border: none;
@@ -106,14 +108,17 @@ input{
 //Page layout
 form labels */
 
-#location{}
-#length{}
-#width{}
+#location {
+}
+#length {
+}
+#width {
+}
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
 
-.PlantContainer{
+.PlantContainer {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -122,46 +127,101 @@ form labels */
   align-items: flex-start;
 }
 .plantcard {
-    /* width: 300px;s
+  /* width: 300px;s
     height: 200px; */
-    /* display: flex; */
-    margin:10px;
-    /* text-align: center; */
-    /* border: 1px solid #ffffff; */
-    border-radius: 5px;
-    padding: 20px;
-    background-color: #add2c1ca;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
-    width: 300px;
-    font-size: 10px;
-    display: flex;
-    flex: 0 0 auto;
+  /* display: flex; */
+  margin: 10px;
+  /* text-align: center; */
+  /* border: 1px solid #ffffff; */
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #add2c1ca;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
+  width: 300px;
+  font-size: 10px;
+  display: flex;
+  flex: 0 0 auto;
 }
 /* .plantcard > * {
   max-width: 100%; 
 } */
-.plantcard:hover{
+.plantcard:hover {
   background-color: #a0b7ad;
 }
-.plantcard img{
+.plantcard img {
   width: 50%;
   /* transform-origin: top left; 
   transform: scale(0.5); */
 }
-.plantcard p{
+.plantcard p {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
 }
-.plantcard div{
+.plantcard div {
   display: flex;
- 
 }
-.plantcard button{
+.plantcard button {
   margin: 1px;
   padding: 1px;
   font-size: 1em;
   height: 20px;
   /* width:50px; */
- 
+}
+
+/* Jayans additions */
+.plant-columns {
+  margin-top: 30px;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  display: flex;
+  justify-content: space-around; /* Distributes space evenly */
+}
+
+.column {
+  width: 30%; /* Each column takes up roughly one-third of the width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.plant-card {
+  margin: 10px 0; /* Spacing between cards */
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #add2c1ca;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
+  /* display: grid;
+  grid-template-columns: 1fr 2fr; */
+  /* align-items: center;
+  justify-items: center; */
+}
+.plant-card:hover {
+  background-color: #a0b7ad;
+}
+
+.plant-image-small {
+  /* width: 10%; Small images for the cards */
+  /* height: auto;
+  margin-bottom: 10px; */
+  transform: scale(0.75);
+  /* display: flex;
+  justify-content: center; */
+}
+
+.plant-details {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .plant-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    width: 100%; /* Full width on smaller screens */
+  }
 }

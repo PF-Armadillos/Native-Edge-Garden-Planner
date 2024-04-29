@@ -44,6 +44,7 @@ export const getPlantDataAsync = (location) => {
     try {
       console.log(location);
       const plantData = await fetch(`/plant/?location=${location}`);
+      console.log(plantData);
       //check for empty data
       if (!plantData.ok) {
         throw 'Could not find plants for area. Check back later!';

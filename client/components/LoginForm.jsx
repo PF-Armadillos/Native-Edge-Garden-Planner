@@ -8,21 +8,24 @@ import Header from './Header.jsx';
 export default function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const submit = async (e) => {
     //sanitize data?
     try {
       e.preventDefault();
-      const res = await fetch('/api/', {
+      e.target.disabled = true;
+      const res = await fetch('/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: username, password: password }),
       });
-      if (!response) throw console.log('Something went wrong!');
-      console.log(response);
+      if (!res) throw console.log('Something went wrong!');
+      console.log(res);
       //reset form
       setUsername('');
       setPassword('');
+      e.target.disabled = false;
       if (res) {
         navigate('/CreateGarden');
       }
@@ -31,13 +34,11 @@ export default function LoginForm() {
     }
   };
 
-  const navigate = useNavigate();
-
-  function handleClick() {
-    navigate('/CreateGarden');
-  }
-  function handleClick2() {
+  function handleClick2(e) {
+    e.preventDefault();
+    e.target.disabled = true;
     navigate('/SignUp');
+    e.target.disabled = false;
   }
   return (
     <div id='loginform-con' className='container'>
@@ -69,14 +70,14 @@ export default function LoginForm() {
       <button onClick={submit} type='submit'>
         Login
       </button>
-      <button2
+      <button
         onClick={handleClick2}
         type='submit'
         className='button2'
         id='button2'
       >
         Sign Up
-      </button2>
+      </button>
     </div>
   );
 }

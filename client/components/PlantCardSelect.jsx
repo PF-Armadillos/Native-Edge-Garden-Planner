@@ -17,18 +17,15 @@ export default function PlantCardSelect({
   const select = (plantId) => dispatch(SelectPlant(plantId));
   const deselect = (plantId) => dispatch(deselectPlant(plantId));
   let checked = false;
-  function handleClick(e) {
-<<<<<<< HEAD
-    if (checked) {
-=======
-    if(checked) {
->>>>>>> dev
-      deselect(e.target.id);
-      checked = !checked;
-    } else {
-      select(e.target.id);
-      checked = !checked;
-    }
+
+  if (checked) {
+    deselect(e.target.id);
+    e.target.classList.add('selected');
+    checked = !checked;
+  } else {
+    select(e.target.id);
+    e.target.classList.remove('selected');
+    checked = !checked;
   }
 
   return (
