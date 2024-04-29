@@ -2,8 +2,8 @@ const path = require('path');
 const express = require('express');
 
 //user dependancies
-const userRouter = require('./routes/userRoutes')
-const userController = require('./controllers/userController')
+const userRouter = require('./routes/userRoutes');
+const userController = require('./controllers/userController');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,15 +13,18 @@ app.use(express.json());
 
 app.use('/user', userRouter);
 
+app.use('/plant/?location', plantDataController.getPlants, (req, res) => {
+  res.status(200).json(res.locals.plants);
+});
+
 //Create a user in the database
 //http://localhost:3000/user
 
-
-app.get('/', (req,res) =>{
+app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 
-//Glolbal error handler 
+//Glolbal error handler
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
