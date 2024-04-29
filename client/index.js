@@ -10,10 +10,17 @@
  */
 import React from 'react';
 import '../styles.css';
-import App from './app.jsx';
+import App from './App.jsx';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './store.js';
+
+import * as ReactDOM from 'react-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  BrowserRouter,
+} from 'react-router-dom';
 
 // function component() {
 //   const element = document.createElement('div');
@@ -23,10 +30,14 @@ import { store } from './store.js';
 // document.body.appendChild(component());
 
 const root = createRoot(document.getElementById('root'));
+//hello
+
 root.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
 );
