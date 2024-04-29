@@ -1,24 +1,31 @@
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setGardenArea, getPlantDataAsync } from './../reducers/plantSlice';
 
 const CreateGarden = () => {
   const [location, setLocation] = useState('');
   const [length, setLength] = useState('');
   const [width, setWidth] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Location:', location);
-    console.log('Length:', length);
-    console.log('Width:', width);
-  };
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  function handleClick() {
-    navigate('/SelectPlants');
-  }
+  const handleSubmit = async (e) => {
+    console.log('Hello');
+    try {
+      e.preventDefault();
+      dispatch(getPlantDataAsync(location));
+      const area = length * width;
+      console.log(area);
+      dispatch(setGardenArea(area));
+      navigate('/SelectPlantsTester3');
+    } catch (error) {
+      // Log any errors that occur during the try block
+      console.error('Error fetching plant data:', error);
+    }
+  };
 
   return (
     <div id="welcome" className="container">
@@ -26,7 +33,7 @@ const CreateGarden = () => {
         <h1>Welcome To The ShellScape Garden Planner</h1>
         <h2>Complete the form below to get started!</h2>
       </div>
-      <form id="welcome-form" onSubmit={handleSubmit}>
+      <form id="welcome-form">
         <label>Location</label>
         <input
           type="text"
@@ -48,8 +55,7 @@ const CreateGarden = () => {
           value={width}
           onChange={(e) => setWidth(e.target.value)}
         ></input>
-        <button onClick={handleClick} type="submit">
-          {' '}
+        <button onClick={handleSubmit} type="submit">
           Submit
         </button>
       </form>

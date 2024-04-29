@@ -3,26 +3,33 @@ import { createSlice } from '@reduxjs/toolkit';
 export const plantSlice = createSlice({
   name: 'plants',
   initialState: {
-    //decide between object, map or array
-    plantList: {},
+    plantList: [],
+    selectedPlantList: {},
     totalPlants: 0,
     totalArea: 0,
-    lastPlantId: 1,
+    lastPlantId: 0,
   },
   reducers: {
     incrementPlant: (state, action) => {
-      state.plantList[action.payload.id].quantity += 1;
+      state.selectedPlantList[action.payload.id].quantity += 1;
     },
     decrementPlant: (state, action) => {
-      state.plantList[action.payload.id].quantity -= 1;
+      state.selectedPlantList[action.payload.id].quantity -= 1;
     },
     selectPlant: (state, action) => {
       const id = lastPlantId + 1;
-      state.plantList[id] = action.payload;
+      const newPlant = { id: id, quantity: 0, area: 0 };
+      state.selectedPlantList[id] = newPlant;
       state.lastPlantId++;
     },
     deselectPlant: (state, action) => {
-      delete state.plantList[action.payload.id];
+      delete state.selectedPlantList[action.payload.id];
+    },
+    setPlantList: (state, action) => {
+      state.plantList = action.payload;
+    },
+    setGardenArea: (state, action) => {
+      state.totalArea = action.payload;
     },
   },
 });
@@ -31,14 +38,14 @@ export const plantSlice = createSlice({
 export const getPlantDataAsync = (location) => {
   return async (dispatch, getState) => {
     try {
-      const foodData = await fetch(`/api/${location}`);
+      const plantData = await fetch(`/plant/?${location}`);
       //check for empty data
-      if (!foodData.name) {
+      if (!plantData.name) {
         throw 'Could not find plants for area. Check back later!';
       }
-      dispatch(getFood(foodData));
+      dispatch(setPlantList(plantData));
     } catch (err) {
-      console.log('Getting foodData error: ', err);
+      console.log('Getting plantData error: ', err);
     }
   };
 };
@@ -49,5 +56,7 @@ export const {
   decrementPlant,
   selectPlant,
   deselectPlant,
+  setPlantList,
+  setGardenArea,
 } = plantSlice.actions;
 export default plantSlice.reducer;

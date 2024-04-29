@@ -1,4 +1,4 @@
-[
+const plantDatabase = [
   {
     _id: '662fbb7313277adf58aeef05',
     State: 'New York',
@@ -1232,3 +1232,5 @@
     Thumb: 'https://shellscape.s3.us-east-2.amazonaws.com/A_C_IMG4702.JPG',
   },
 ];
+
+export default plantDatabase;

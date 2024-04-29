@@ -36,3 +36,5 @@ plantDataController.getPlants = async (req, res, next) => {
     );
   }
 };
+
+module.exports = plantDataController;

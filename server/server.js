@@ -4,16 +4,17 @@ const express = require('express');
 //user dependancies
 const userRouter = require('./routes/userRoutes');
 const userController = require('./controllers/userController');
+const plantDataController = require('./controllers/plantDataController');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// app.use(express.static(path.resolve(__dirname, '../dist')));
+app.use(express.static(path.resolve(__dirname, '../dist')));
 app.use(express.json());
 
 app.use('/user', userRouter);
 
-app.use('/plant/?location', plantDataController.getPlants, (req, res) => {
+app.get('/plant/?location', plantDataController.getPlants, (req, res) => {
   res.status(200).json(res.locals.plants);
 });
 
@@ -22,6 +23,11 @@ app.use('/plant/?location', plantDataController.getPlants, (req, res) => {
 
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+});
+
+//404 handling
+app.use('*', (req, res) => {
+  return res.sendStatus(404);
 });
 
 //Glolbal error handler

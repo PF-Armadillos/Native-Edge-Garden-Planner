@@ -30,7 +30,6 @@ import {
 // document.body.appendChild(component());
 
 const root = createRoot(document.getElementById('root'));
-//hello
 
 root.render(
   <React.StrictMode>
