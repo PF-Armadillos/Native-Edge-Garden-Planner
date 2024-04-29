@@ -5,14 +5,11 @@ const express = require('express');
 const userRouter = require('./routes/userRoutes')
 const userController = require('./controllers/userController')
 
-
 const app = express();
 const port = process.env.PORT || 3000;
 
-
 // app.use(express.static(path.resolve(__dirname, '../dist')));
 app.use(express.json());
-
 
 app.use('/user', userRouter);
 
@@ -36,7 +33,6 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-
-
-module.exports = app.listen(port, () => console.log(`Listening on port ${port}`));
-
+module.exports = app.listen(port, () =>
+  console.log(`Listening on port ${port}`)
+);
