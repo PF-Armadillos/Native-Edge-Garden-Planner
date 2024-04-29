@@ -21,7 +21,6 @@ plantDataController.getPlants = async (req, res, next) => {
     //get specific data
     const location = req.params.location;
     const data = await model.find({ State: location });
-    console.log(data);
     res.locals.plants = data;
     return next();
   } catch (err) {
