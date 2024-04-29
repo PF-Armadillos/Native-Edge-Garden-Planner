@@ -1,8 +1,21 @@
-//import user model
-const db = require("../models/userModel");
+
+const db = require('../models/userModel');
 
 const userController = {};
 
+// helper function to create fileController error objects
+// return value will be the object we pass into next, invoking global error handler
+const createErr = (errInfo) => {
+  const { method, type, err } = errInfo;
+  return {
+    log: `userController.${method} ${type}: ERROR: ${
+      typeof err === 'object' ? JSON.stringify(err) : err
+    }`,
+    message: {
+      err: `Error occurred in userController.${method}. Check server logs for more details.`,
+    },
+  };
+};
 userController.createUser = (req, res, next) => {
   const { username, password } = req.body;
   const values = [username, password];
@@ -122,3 +135,14 @@ userController.loginUser = (req, res, next) => {
     });
 };
 */
+
+// users need and increment with each user added id increments
+
+//usr,psswrd,pk:id,
+//id : first column,
+// next colmns
+//usr, email, psswd
+
+// Need to add id
+// How to do id increment logic ? set global variable that holds that and go from that ?
+

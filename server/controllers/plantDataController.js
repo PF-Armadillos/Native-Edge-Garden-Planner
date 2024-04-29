@@ -1,4 +1,4 @@
-const model = require('../models/plantModel');
+const Plant = require('../models/plantModel');
 
 const plantDataController = {};
 
@@ -19,19 +19,26 @@ const createErr = (errInfo) => {
 plantDataController.getPlants = async (req, res, next) => {
   try {
     //get specific data
-    const location = req.params.location;
-    const data = await model.find({ State: location });
+    const location = req.query.location;
+    const data = await Plant.findOne({});
+    console.log(data);
+    // if (data.length === 0)
+    //   throw createErr({
+    //     method: 'getPlants',
+    //     type: 'DB',
+    //     err: 'Entry Not found',
+    //   });
     res.locals.plants = data;
     return next();
   } catch (err) {
     return next(
       createErr({
-        log: `plantDataController.getPlants: Error: ${err}`,
-        status: 503,
-        message: {
-          err: 'Error occurred in fetching plant data in plantDataController. Check server logs for more details.',
-        },
+        method: `getPlants`,
+        type: 'DB',
+        err: err,
       })
     );
   }
 };
+
+module.exports = plantDataController;

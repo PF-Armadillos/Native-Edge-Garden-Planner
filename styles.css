@@ -1,62 +1,104 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* Classes */
-*{
-  
+* {
   font-family: Roboto;
 }
-body{
+body {
   display: grid;
-  grid-template-columns: 1fr 1fr 3fr 1fr 1fr ;
+  grid-template-columns:  repeat(7, 1fr);
+  grid-template-rows: 100px auto; 
   justify-items: center;
   color: hsl(0,0%,38%);
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-h1{color: hsl(0,0%,28%);}
+#navbar{
+  grid-row-start:1;
+  grid-row-end:2;
+  display: flex;
+  grid-column: 1/span 7;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #d4f4fa;
+}
+#loginform-con{
+  grid-row-start:2;
+  grid-row-end:3;
+  width: 100%;
+}
+h1{
+  color: hsl(0,0%,28%);
+  text-align: center;
+}
 h2{color: hsl(0,0%,38%);}
 button{
-  margin: 20px;
+ 
   background-color: hsl(143, 49%, 43%);
-  border:none;
+  border: none;
   border-radius: 5px;
   padding: 10px;
   margin: 20px;
-  color: hsla(0, 0%, 100%,0.98);
-  font-weight:bold ;
+  color: hsla(0, 0%, 100%, 0.98);
+  font-weight: bold;
   font-size: 1.5em;
 }
-button:hover{
+button:hover {
   background-color: hsl(143, 49%, 33%);
   transition: 7ms;
 }
-#welcome{
-  grid-column-start:2;
-  grid-column-end:5;
+button2{
+  background-color: none;
+  font-size: 1.25em;
+  padding: 10px;
+  color: hsl(143, 49%, 43%);
+  border-width: 2px;
+  border:hsl(143, 49%, 43%);
+  /* background-color: white; */
+  border-radius: 5px;
+}
+button2:hover{
+  color: hsl(143, 51%, 23%);
+}
+.container{
+  grid-column-start:3;
+  grid-column-end:6;
   background-color: hsl(38,100%,94%);
   margin:70px;
   border-radius: 70px;
+  grid-row-start:2;
+  grid-row-end:3;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:20px;
 }
+
 #welcome-header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin:40px;
+  /* margin:40px; */
   margin-bottom:20px;
+  text-align: center;
 }
-#welcome-form{
+form{
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  margin:10px;
+  align-items: center;
+  margin: 10px;
 }
-#welcome-form label{
+label{
   margin-bottom: 2px;
-  
 }
-#welcome-form input{
+input{
   margin-bottom: 15px;
   border-radius: 5px;
   border: none;
-  box-shadow: 0 2px 13px hsla(0, 0%, 50%,0.2);
+  box-shadow: 0 2px 13px hsla(0, 0%, 50%, 0.2);
   height: 22px;
   opacity: 70%;
 }
@@ -67,3 +109,59 @@ form labels */
 #location{}
 #length{}
 #width{}
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+.PlantContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.plantcard {
+    /* width: 300px;s
+    height: 200px; */
+    /* display: flex; */
+    margin:10px;
+    /* text-align: center; */
+    /* border: 1px solid #ffffff; */
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #add2c1ca;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
+    width: 300px;
+    font-size: 10px;
+    display: flex;
+    flex: 0 0 auto;
+}
+/* .plantcard > * {
+  max-width: 100%; 
+} */
+.plantcard:hover{
+  background-color: #a0b7ad;
+}
+.plantcard img{
+  width: 50%;
+  /* transform-origin: top left; 
+  transform: scale(0.5); */
+}
+.plantcard p{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.plantcard div{
+  display: flex;
+ 
+}
+.plantcard button{
+  margin: 1px;
+  padding: 1px;
+  font-size: 1em;
+  height: 20px;
+  /* width:50px; */
+ 
+}

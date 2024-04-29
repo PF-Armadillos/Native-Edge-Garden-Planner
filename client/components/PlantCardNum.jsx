@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function PlantCard({
+export default function PlantCardNum({
   commonName,
   habit,
   duration,
@@ -25,17 +25,21 @@ export default function PlantCard({
   }
 
   return (
-    <div className='plantBox'>
-      <img src={image} alt='happy little flowers' />
-      <p className='plantName'>Name: {commonName}</p>
-      <p className='habit'>Plant-Type: {habit}</p>
-      <p className='duration'>Duration: {duration}</p>
-      <button className='add' onClick={handleAdd}>
-        +
-      </button>
-      <button className='minus' onClick={handleMinus}>
-        -
-      </button>
+    <div className='plantcard'>
+      <div>
+        <img src={image} alt='happy little flowers' />
+        <p className='plantName'>Name: {commonName}</p>
+        {/* <p className='habit'>Plant-Type: {habit}</p>
+        <p className='duration'>Duration: {duration}</p> */}
+      </div>
+      <div>
+        <button className='add' onClick={handleAdd}>
+          +
+        </button>
+        <button className='minus' onClick={handleMinus}>
+          -
+        </button>
+      </div>
     </div>
   );
 }

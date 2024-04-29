@@ -33,12 +33,9 @@ export default function LoginForm() {
   function handleClick() {
     navigate('/CreateGarden');
   }
-  function handleClick2() {
-    navigate('/SignUp');
-  }
   return (
-    <div id="loginform-con" className= "container">
-      <h1>Let's Grow Together</h1>
+    <div id="loginform" className= "container">
+    <h1>Sign up</h1>
       <form className="login-form" onSubmit={submit}>
         <InputLabel for="username" value="User Name: " />
         <TextInput
@@ -65,9 +62,6 @@ export default function LoginForm() {
       <button onClick={handleClick} type="submit">
         Login
       </button>
-      <button2 onClick={handleClick2} type="submit" className="button2" id="button2">
-        Sign Up
-      </button2>
     </div>
   );
 }
