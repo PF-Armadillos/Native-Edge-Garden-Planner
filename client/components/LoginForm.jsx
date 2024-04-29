@@ -3,6 +3,7 @@ import TextInput from './TextInput.jsx';
 import InputError from './InputError.jsx';
 import InputLabel from './InputLabel.jsx';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header.jsx';
 
 export default function LoginForm() {
   const [username, setUsername] = useState('');
@@ -32,8 +33,12 @@ export default function LoginForm() {
   function handleClick() {
     navigate('/CreateGarden');
   }
+  function handleClick2() {
+    navigate('/SignUp');
+  }
   return (
-    <div>
+    <div id="loginform-con" className= "container">
+      <h1>Let's Grow Together</h1>
       <form className="login-form" onSubmit={submit}>
         <InputLabel for="username" value="User Name: " />
         <TextInput
@@ -60,6 +65,9 @@ export default function LoginForm() {
       <button onClick={handleClick} type="submit">
         Login
       </button>
+      <button2 onClick={handleClick2} type="submit" className="button2" id="button2">
+        Sign Up
+      </button2>
     </div>
   );
 }
