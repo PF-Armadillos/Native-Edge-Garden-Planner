@@ -27,5 +27,5 @@ const plantSchema = new Schema({
   thumb: String,
 });
 
-const Plant = mongoose.model('plant', plantSchema, 'plants5');
+const Plant = mongoose.model('plant', plantSchema, 'plants6');
 module.exports = Plant;
