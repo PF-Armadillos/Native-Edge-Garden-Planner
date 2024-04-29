@@ -13,10 +13,13 @@ const CreateGarden = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
-    console.log('Hello');
     try {
       e.preventDefault();
-      dispatch(getPlantDataAsync(location));
+      //if location has space change it to another character for url encoding
+      if (location.includes(' ')) {
+        const replaced = location.replace(/ /g, '+');
+        dispatch(getPlantDataAsync(replaced));
+      } else dispatch(getPlantDataAsync(location));
       const area = length * width;
       console.log(area);
       dispatch(setGardenArea(area));

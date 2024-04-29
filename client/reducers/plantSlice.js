@@ -18,7 +18,11 @@ export const plantSlice = createSlice({
     },
     selectPlant: (state, action) => {
       const id = lastPlantId + 1;
-      const newPlant = { id: id, quantity: 0, area: 0 };
+      const newPlant = {
+        id: action.payload.id,
+        quantity: 0,
+        area: action.payload.area,
+      };
       state.selectedPlantList[id] = newPlant;
       state.lastPlantId++;
     },
@@ -38,9 +42,10 @@ export const plantSlice = createSlice({
 export const getPlantDataAsync = (location) => {
   return async (dispatch, getState) => {
     try {
-      const plantData = await fetch(`/plant/?${location}`);
+      console.log(location);
+      const plantData = await fetch(`/plant/?location=${location}`);
       //check for empty data
-      if (!plantData.name) {
+      if (!plantData.ok) {
         throw 'Could not find plants for area. Check back later!';
       }
       dispatch(setPlantList(plantData));

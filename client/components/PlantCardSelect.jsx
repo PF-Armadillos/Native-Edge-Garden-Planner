@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectPlant, deselectPlant } from './../reducers/plantSlice.js';
 
 export default function PlantCardSelect({
   commonName,
@@ -13,10 +14,21 @@ export default function PlantCardSelect({
 }) {
   //create plant Id when making all the regular plant cards
   const dispatch = useDispatch();
-  const plant = useSelector((state) => state.plant);
+  const select = (plantId) => dispatch(SelectPlant(plantId));
+  const deselect = (plantId) => dispatch(deselectPlant(plantId));
+  let checked = false;
+  function handleClick(e) => {
+    if(checked) {
+      deselect(e.target.id);
+      checked = !checked;
+    } else {
+      select(e.target.id);
+      checked = !checked;
+    }
+  }
 
   return (
-    <div className='plantBox'>
+    <div className='plantBox' onClick={handleClick} id={plantId}>
       <img src={image} alt='happy little flowers' />
       <p className='species'>Latin Name: {species}</p>
       <p className='plantName'>Name: {commonName}</p>
@@ -24,12 +36,6 @@ export default function PlantCardSelect({
       <p className='duration'>Duration: {duration}</p>
       <p className='light'>Light: {light}</p>
       <p className='water'>Water: {water}</p>
-      <button className='add' onClick={handleAdd}>
-        +
-      </button>
-      <button className='minus' onClick={handleMinus}>
-        -
-      </button>
     </div>
   );
 }

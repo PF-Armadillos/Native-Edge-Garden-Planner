@@ -3,8 +3,6 @@ import PlantCardSelect from './PlantCardSelect.jsx';
 import plantDatabase from '../staticObject.js';
 import { useSelector } from 'react-redux';
 
-console.log(plantDatabase);
-
 export default function SelectPlants() {
   //fetch all plants from database via url
   //for loop nonsense here
@@ -12,7 +10,19 @@ export default function SelectPlants() {
   console.log(plantData);
   const array = [];
   for (const ele of plantData) {
-    array.push(<PlantCardSelect />);
+    array.push(
+      <PlantCardSelect
+        commonName={ele.CommonName}
+        species={ele.Species}
+        habit={ele.Habit}
+        duration={ele.Duration}
+        image={ele.Thumb}
+        light={ele.Light}
+        water={ele.Water}
+        plantId={ele._id}
+        key={ele._id}
+      />
+    );
   }
   return (
     <div className='plant-list'>

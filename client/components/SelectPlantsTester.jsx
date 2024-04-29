@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 console.log(plantDatabase);
 
-export default function SelectPlants({ data }) {
+export default function SelectPlants() {
   //fetch all plants from database via url
   //for loop nonsense here
   return (
