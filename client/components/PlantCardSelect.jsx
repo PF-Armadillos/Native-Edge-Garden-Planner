@@ -17,7 +17,7 @@ export default function PlantCardSelect({
   const select = (plantId) => dispatch(SelectPlant(plantId));
   const deselect = (plantId) => dispatch(deselectPlant(plantId));
   let checked = false;
-  function handleClick(e) => {
+  function handleClick(e) {
     if(checked) {
       deselect(e.target.id);
       checked = !checked;
