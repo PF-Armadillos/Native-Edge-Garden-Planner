@@ -15,12 +15,12 @@ const App = () => {
         
     }
     return(
-        <div>
-            <h1>Welcome to the ShellScape Garden Planner</h1>
-            <h2>Complete the form below to get started!</h2>
-
-            <form onSubmit={handleSubmit}>
-              <div>
+        <div id="welcome" className="container">
+          <div id="welcome-header" >
+          <h1>Welcome To The ShellScape Garden Planner</h1>
+          <h2>Complete the form below to get started!</h2>
+          </div>
+            <form id="welcome-form" onSubmit={handleSubmit}>              
                 <label>Location</label>
                 <input 
                     type="text" 
@@ -28,9 +28,7 @@ const App = () => {
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                 >
-                </input>
-              </div>
-              <div>
+                </input>             
                 <label>Length of garden bed (inches)</label>
                 <input 
                     type="text" 
@@ -38,9 +36,7 @@ const App = () => {
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
                 >
-                </input>
-              </div>
-              <div>
+                </input>                          
                 <label>Width of garden bed (inches)</label>
                 <input 
                     type="text" 
@@ -48,8 +44,7 @@ const App = () => {
                     value={width}
                     onChange={(e) => setWidth(e.target.value)}
                 >
-                </input>
-              </div>
+                </input>              
               <button type="submit"> Submit</button>
             </form>
         </div>
