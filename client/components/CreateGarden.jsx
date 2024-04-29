@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CreateGarden = () => {
   const [location, setLocation] = useState('');
@@ -12,35 +13,45 @@ const CreateGarden = () => {
     console.log('Length:', length);
     console.log('Width:', width);
   };
+
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/SelectPlants');
+  }
+
   return (
-    <div id='welcome' className='container'>
-      <div id='welcome-header'>
+    <div id="welcome" className="container">
+      <div id="welcome-header">
         <h1>Welcome To The ShellScape Garden Planner</h1>
         <h2>Complete the form below to get started!</h2>
       </div>
-      <form id='welcome-form' onSubmit={handleSubmit}>
+      <form id="welcome-form" onSubmit={handleSubmit}>
         <label>Location</label>
         <input
-          type='text'
-          id='location'
+          type="text"
+          id="location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         ></input>
         <label>Length of garden bed (inches)</label>
         <input
-          type='text'
-          id='length'
+          type="text"
+          id="length"
           value={length}
           onChange={(e) => setLength(e.target.value)}
         ></input>
         <label>Width of garden bed (inches)</label>
         <input
-          type='text'
-          id='width'
+          type="text"
+          id="width"
           value={width}
           onChange={(e) => setWidth(e.target.value)}
         ></input>
-        <button type='submit'> Submit</button>
+        <button onClick={handleClick} type="submit">
+          {' '}
+          Submit
+        </button>
       </form>
     </div>
   );
