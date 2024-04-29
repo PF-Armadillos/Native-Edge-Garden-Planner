@@ -24,7 +24,9 @@ userRouter.post('/login', userController.loginUser, (req, res) => {
 
 //test routes ""
 //test A : Show full Database Table
-userRouter.get('/', userControllers.showTable);
+userRouter.get('/', userController.showTable, (req, res) => {
+  res.sendStatus(200);
+});
 
 module.exports = userRouter;
 

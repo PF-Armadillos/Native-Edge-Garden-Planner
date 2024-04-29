@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import PlantCard from './PlantCard.jsx';
+import PlantCardSelect from './PlantCardSelect.jsx';
+import plantDatabase from '../staticObject.js';
+import { useSelector } from 'react-redux';
 
 export default function SelectPlants() {
   const sampleTest = {

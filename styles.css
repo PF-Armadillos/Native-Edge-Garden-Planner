@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* Classes */
-*{
-  
+* {
   font-family: Roboto;
 }
-body{
+body {
   display: grid;
   grid-template-columns:  repeat(7, 1fr);
   grid-template-rows: 100px auto; 
@@ -38,15 +37,15 @@ h2{color: hsl(0,0%,38%);}
 button{
  
   background-color: hsl(143, 49%, 43%);
-  border:none;
+  border: none;
   border-radius: 5px;
   padding: 10px;
   margin: 20px;
-  color: hsla(0, 0%, 100%,0.98);
-  font-weight:bold ;
+  color: hsla(0, 0%, 100%, 0.98);
+  font-weight: bold;
   font-size: 1.5em;
 }
-button:hover{
+button:hover {
   background-color: hsl(143, 49%, 33%);
   transition: 7ms;
 }
@@ -89,18 +88,17 @@ button2:hover{
 form{
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  margin:10px;
+  align-items: center;
+  margin: 10px;
 }
 label{
   margin-bottom: 2px;
-  
 }
 input{
   margin-bottom: 15px;
   border-radius: 5px;
   border: none;
-  box-shadow: 0 2px 13px hsla(0, 0%, 50%,0.2);
+  box-shadow: 0 2px 13px hsla(0, 0%, 50%, 0.2);
   height: 22px;
   opacity: 70%;
 }
