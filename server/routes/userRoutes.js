@@ -1,10 +1,12 @@
 const express = require('express');
 const userController = require('../controllers/userController');
 
+
 const userRouter = express.Router();
 
 //user routes:
 //create user
+
 // EXPECT THE FOLLOWING FOR SIGNUP LOGIN
 // { username: 'username', password: 'password' }
 userRouter.post('/signup', userController.createUser, (req, res) => {
@@ -30,4 +32,3 @@ userRouter.get('/', userController.showTable, (req, res) => {
 
 module.exports = userRouter;
 
-//
