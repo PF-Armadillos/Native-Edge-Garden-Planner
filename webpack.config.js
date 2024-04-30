@@ -25,7 +25,7 @@ module.exports = {
     },
     proxy: [
       {
-        context: ['/api'],
+        context: ['/plant/'],
         target: 'http://localhost:3000',
       },
     ],
@@ -57,7 +57,7 @@ module.exports = {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          'style-loader',
+          // 'style-loader',
           'css-loader',
           'postcss-loader',
         ],
