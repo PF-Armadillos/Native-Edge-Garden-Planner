@@ -23,6 +23,7 @@ const CreateGarden = () => {
       const area = length * width;
       console.log(area);
       dispatch(setGardenArea(area));
+      //change to SelectPlants to try the fetch
       navigate('/SelectPlantsTester3');
     } catch (error) {
       // Log any errors that occur during the try block
