@@ -18,7 +18,7 @@ app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.use('/user', userRouter);
 
-app.get('/plant?:location', plantDataController.getPlants, (req, res) => {
+app.get('/plant', plantDataController.getPlants, (req, res) => {
   res.status(200).json(res.locals.plants);
 });
 
@@ -46,8 +46,8 @@ app.use((err, req, res, next) => {
 /**
  * start server
  */
-app.listen(port, () => {
+let testServer = app.listen(port, () => {
   console.log(`Server listening on port: ${port}...`);
 });
 
-module.exports = app;
+module.exports = testServer;

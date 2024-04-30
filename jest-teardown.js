@@ -1,4 +1,4 @@
 module.exports = async (globalConfig) => {
-    testServer.close();
+    global.testServer.close();
   };
   
