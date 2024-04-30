@@ -12,9 +12,9 @@ function PlantCardSelectTester({
   plantId,
 }) {
   return (
-    <div className="plant-card">
-      <img src={image} alt={`${commonName}`} className="plant-image-small" />
-      <div className="plant-details">
+    <div className='plant-card'>
+      <img src={image} alt={`${commonName}`} className='plant-image-small' />
+      <div className='plant-details'>
         <h3>{commonName}</h3>
         <p>
           <strong>Species:</strong> {species}
@@ -31,6 +31,10 @@ function PlantCardSelectTester({
         <p>
           <strong>Water Needs:</strong> {water}
         </p>
+        <div>
+          <button className='add'>+</button>
+          <button className='minus'>-</button>
+        </div>
       </div>
     </div>
   );
