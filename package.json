@@ -4,7 +4,7 @@
   "description": "Plan the perfect garden whatever the size and location.",
   "private": true,
   "scripts": {
-    "test": "jest--verbose",
+    "test": "jest --verbose --detectOpenHandles",
     "build": "NODE_ENV=production webpack",
     "build-dev": "webpack --watch",
     "start": "nodemon server/server.js",
@@ -23,16 +23,18 @@
     "globalSetup": "./jest-setup.js",
     "globalTeardown": "./jest-teardown.js",
     "testEnvironment": "jest-environment-jsdom",
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect"
-    ]
+    "testMatch": [
+      "<rootDir>/tests/**/*.js",
+      "<rootDir>/tests/**/*.jsx"
+    ],
+    "verbose": true
   },
   "homepage": "https://github.com/PF-Armadillos/ShellScape-Garden-Planner#readme",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
-    "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^15.0.5",
     "babel-jest": "^29.7.0",
+    "build": "^0.1.4",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jest-environment-jsdom": "^29.7.0",
@@ -49,6 +51,7 @@
     "@babel/preset-react": "^7.24.1",
     "@eslint/js": "^9.1.1",
     "@testing-library/dom": "^10.1.0",
+    "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/user-event": "^14.5.2",
     "autoprefixer": "^10.4.19",
     "babel-loader": "^9.1.3",
