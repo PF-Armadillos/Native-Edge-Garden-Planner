@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import TextInput from './TextInput.jsx';
-import InputError from './InputError.jsx';
-import InputLabel from './InputLabel.jsx';
+import TextInput from './unUsedComponents/TextInput.jsx';
+import InputError from './unUsedComponents/InputError.jsx';
+import InputLabel from './unUsedComponents/InputLabel.jsx';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header.jsx';
 
