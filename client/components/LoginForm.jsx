@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import TextInput from './unUsedComponents/TextInput.jsx';
-import InputError from './unUsedComponents/InputError.jsx';
-import InputLabel from './unUsedComponents/InputLabel.jsx';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header.jsx';
 
@@ -44,7 +41,7 @@ export default function LoginForm() {
     <div id='loginform-con' className='container'>
       <h1>Let's Grow Together</h1>
       <form className='login-form' onSubmit={submit}>
-        <label for = 'username'>User Name: </label>      
+        <label for = 'username'>User Name:</label>      
         <div className='flex flex-col items-start'>
           <input
             type='username'
@@ -55,7 +52,7 @@ export default function LoginForm() {
           />
         </div>
         
-        <label for='password'> Password: </label>
+        <label for='password'> Password:</label>
         <div>
           <input
             type='password'

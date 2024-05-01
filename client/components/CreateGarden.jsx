@@ -10,20 +10,11 @@ const CreateGarden = () => {
   const [width, setWidth] = useState('');
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      //if location has space change it to another character for url encoding
-      if (location.includes(' ')) {
-        const replaced = location.replace(/ /g, '+');
-        dispatch(getPlantDataAsync(replaced));
-      } else dispatch(getPlantDataAsync(location));
-      const area = length * width;
-      console.log(area);
-      dispatch(setGardenArea(area));
-      //change to SelectPlants to try the fetch
       navigate('/SelectPlantsTester3');
     } catch (error) {
       // Log any errors that occur during the try block
@@ -35,7 +26,7 @@ const CreateGarden = () => {
     <div id='create-con' className='container'>
       <div id='welcome-header'>
         <h1>Welcome to ShellScape Garden Planner</h1>
-        <h2>Complete the form below to get started!</h2>
+        <h2 data-testid="header2">Complete the form below to get started!</h2>
       </div>
       <form id='welcome-form'>
         <label>Location</label>
