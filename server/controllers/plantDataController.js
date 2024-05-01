@@ -25,7 +25,7 @@ plantDataController.getPlants = async (req, res, next) => {
     console.log('Location is', location);
     const data = await Plant.find({ State: location });
     console.log('Data is', data);
-
+    console.log('Data length is ', data.length)
     if(!data.length) {
       throw new Error('data not found')
     }

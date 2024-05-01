@@ -4,14 +4,10 @@ const Plant = require('../server/models/plantModel');
 const server = require('../server/server')
 
 describe('Route integration', () => {
-    // let test;
-    // beforeAll((done) => {
-    //     test = server.listen(0, done);
-    // });
 
     afterAll((done) => {
         server.close(done);
-    });
+    }); //closes the port after tests are run
 
     describe('/', () => {
         describe('GET', () => {
@@ -26,7 +22,6 @@ describe('Route integration', () => {
 
     describe('Mock Plant Schema Test', () => {
         beforeEach(() => {
-            jest.clearAllMocks(); // clear every mock
             mockingoose(Plant).reset(); // reset mock for Plant
         })
         
@@ -62,10 +57,11 @@ describe('Route integration', () => {
               }]
 
             beforeEach(() => {
-                mockingoose(Plant).toReturn(mockPlants, 'find');
+                mockingoose(Plant).reset();
             });
 
         it('responds with a list of plants based on state query', async () => {
+            mockingoose(Plant).toReturn(mockPlants, 'find');
             const response = await request(server)
             .get('/plant?location=New York')
             .expect(200)
@@ -74,4 +70,23 @@ describe('Route integration', () => {
             expect(response.body).toEqual(mockPlants);
         }, 12000);      
         });
+
+        it('response with 500 error', async () => {
+            mockingoose(Plant).toReturn([], 'find');
+            const response = await request(server)
+            .get('/plant?location=Boston')
+            .expect(500)
+            
+            expect(response.body).toEqual({ err: 'An error occurred in getting plants'})
+        })
+    
+    describe('/ihatetesting', () => {
+        it('404 error handler', async () => {
+            await request(server)
+            .get('/ihatetesting')
+            .expect(404)
+        })
+    })
     });
+
+   
