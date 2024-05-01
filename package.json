@@ -22,7 +22,7 @@
   "jest": {
     "globalSetup": "./jest-setup.js",
     "globalTeardown": "./jest-teardown.js",
-    "testEnvironment": "node", 
+    "testEnvironment": "node",
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
@@ -43,6 +43,7 @@
     "@reduxjs/toolkit": "^2.2.3",
     "@testing-library/react": "^15.0.5",
     "babel-jest": "^29.7.0",
+    "bcryptjs": "^2.4.3",
     "build": "^0.1.4",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

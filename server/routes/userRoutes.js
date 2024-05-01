@@ -15,9 +15,9 @@ userRouter.post('/signup', userController.createUser, (req, res) => {
 });
 
 //add a route for login
-userRouter.post('/login', userController.loginUser, (req, res) => {
+userRouter.post('/login', userController.verifyUser, (req, res) => {
   //check if username and password exist on db if not return to sign up page
-  res.status(200).json();
+  res.status(200).json({ message: 'Logged in successfully', user: res.locals.user });
 });
 
 //update password
