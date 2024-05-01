@@ -46,8 +46,13 @@ app.use((err, req, res, next) => {
 /**
  * start server
  */
-let testServer = app.listen(port, () => {
+let testServer;
+if (process.env.NODE_ENV !== 'test') {
+testServer = app.listen(port, () => {
   console.log(`Server listening on port: ${port}...`);
-});
+}) 
+} else {
+  testServer = app.listen(0)
+}
 
 module.exports = testServer;
