@@ -2,89 +2,62 @@
 const mockingoose = require('mockingoose');
 
 const UserModel = require('../server/models/userModel.js');
-const {createUser, findUser} = require('../server/controllers/userController.js');
 
-describe('DB mongoose test for UserModel', () => {
 
-  it('should return document based on findOne method', () => {
+const request = require('supertest');
+const server = require('../server/server')
+
+
+
+describe('DB tests for UserModel', () => {
+
+  it('should return document based on findOne method', async () => {
     //pseudo document
-    const _doc = 
-    {
-    username: 'Aissata',
-    password: '123'
-    };
+    const _doc = [{
+        username: 'Aissata',
+        password: '123'
+      },
+      {
+        username: 'devil',
+        password: 'chicken'
+      }
+    ];
     
-    //wrap model in mockinggoose and use toReturn to specify 
+    //wrap model in mockinggoose and use toReturn to pass in document and operation to use on model
     mockingoose(UserModel).toReturn(_doc, 'findOne');
-    
-    let results;
-
-    UserModel.findOne({firstName: 'Aissata'})
-    .then(foundUser => 
-      {results=foundUser
-        expect(results[0].firstName).toBe('Aissata')
-      })
-    .catch(err =>  {
-      console.log(err);     
-    });    
+        
+    const result = await UserModel.findById({username: 'Aissata'});
+    console.log(result);
+    expect(result[0].username).toBe('Aissata');
   });
+ 
+});
 
+describe('User Route tests', () => {
 
-  // it('should return the doc with findById', () => {
-  //   const _doc = 
-  //   {
-  //   username: 'Aissata',
-  //   password: '123'
-  //   };
-    
-  //   //wrap model in mockinggoose and 
-  //   mockingoose(UserModel).toReturn(_doc, 'findOne');
-
-  //   return UserModel.findById({ _id: 'Aissata' }).then(doc => {
-  //     expect(JSON.parse(JSON.stringify(doc))).toMatchObject(_doc);
-  //   });
-  // });
+  afterAll((done) => {
+      server.close(done);
+  }); //closes the port after tests are run
+ 
+      describe('POST to /user/signup', () => {
+          it('responds with 200 status and a json content type', async () => {
+              await request(server)
+                .post('/user/signup')
+                .expect('Content-Type', /json/)
+                .expect(200);
+          });
+      });
   
+ 
+      describe('POST to /user/login', () => {
+        it('responds with 200 status and a json content type', async () => {
+            await request(server)
+              .post('/user/login')
+              .expect('Content-Type', /json/)
+              .expect(200);
+        });
+    });
 
 
-
-
-
-  // it('should return the doc with update', () => {
-  //   const _doc = {
-  //     _id: '507f191e810c19729de860ea',
-  //     name: 'name',
-  //     email: 'name@email.com',
-  //   };
-
-  //   mockingoose(UserModel).toReturn(_doc, 'update');
-
-  //   return UserModel
-  //     .update({ name: 'changed' }) // this won't really change anything
-  //     .where({ _id: '507f191e810c19729de860ea' })
-  //     .then(doc => {
-  //       expect(JSON.parse(JSON.stringify(doc))).toMatchObject(_doc);
-  //     });
-  // });
-
-  // it('should return multiple docs', () => {
-  //   const _doc = [
-  //     {
-  //     username: 'Aissata',
-  //     password: '123'
-  //     },
-  //     {
-  //       username: 'Devil',
-  //       password: 'Chicken'
-  //     }
-  //   ];
-
-  //   //wrap model with mockinggoose
-  //   mockingoose(UserModel).toReturn(_doc, 'findOne');
-
-  //   return UserModel.findById({ _id: 'Aissata' }).then(doc => {
-  //     expect(JSON.parse(JSON.stringify(doc))).toMatchObject(_doc[0]);
-  //   });
-  // });
 
 });
