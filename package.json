@@ -20,15 +20,23 @@
     "url": "https://github.com/PF-Armadillos/ShellScape-Garden-Planner/issues"
   },
   "jest": {
-    "preset": "@shelf/jest-mongodb",
     "globalSetup": "./jest-setup.js",
     "globalTeardown": "./jest-teardown.js",
-    "testEnvironment": "node",
+    "testEnvironment": "node", 
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
     "testMatch": [
       "<rootDir>/tests/**/*.js",
       "<rootDir>/tests/**/*.jsx"
     ],
     "verbose": true
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
   },
   "homepage": "https://github.com/PF-Armadillos/ShellScape-Garden-Planner#readme",
   "dependencies": {

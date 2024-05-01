@@ -4,13 +4,13 @@ const Plant = require('../server/models/plantModel');
 const server = require('../server/server')
 
 describe('Route integration', () => {
-    let test;
-    beforeAll((done) => {
-        test = server.listen(0, done);
-    });
+    // let test;
+    // beforeAll((done) => {
+    //     test = server.listen(0, done);
+    // });
 
     afterAll((done) => {
-        test.close(done);
+        server.close(done);
     });
 
     describe('/', () => {
