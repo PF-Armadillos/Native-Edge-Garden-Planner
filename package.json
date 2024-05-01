@@ -22,12 +22,13 @@
   "jest": {
     "globalSetup": "./jest-setup.js",
     "globalTeardown": "./jest-teardown.js",
-    "testEnvironment": "jest-environment-jsdom",
+    "testEnvironment": "node",
     "testMatch": [
       "<rootDir>/tests/**/*.js",
       "<rootDir>/tests/**/*.jsx"
     ],
-    "verbose": true
+    "verbose": true,
+    "preset": "@shelf/jest-mongodb"
   },
   "homepage": "https://github.com/PF-Armadillos/ShellScape-Garden-Planner#readme",
   "dependencies": {
@@ -38,6 +39,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jest-environment-jsdom": "^29.7.0",
+    "mockingoose": "^2.16.2",
     "mongoose": "^8.3.2",
     "pg": "^8.11.5",
     "react": "^18.3.1",
@@ -50,6 +52,7 @@
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@eslint/js": "^9.1.1",
+    "@shelf/jest-mongodb": "^4.2.0",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/user-event": "^14.5.2",
