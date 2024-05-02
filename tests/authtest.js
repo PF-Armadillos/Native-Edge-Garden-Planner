@@ -37,7 +37,7 @@ describe('Authentication with Bcrypt and Login', () => {
             expect(res.body).toHaveProperty('username', 'chicken') //to have property key value pair 
         })
         
-        it('should redirect to signup if username is incorrect', async () => {
+        it('should give 401 error and message if username is incorrect', async () => {
             mockingoose(User).toReturn(null, 'findOne');
             const res = await request(server)
             .post('/user/login')
@@ -45,12 +45,12 @@ describe('Authentication with Bcrypt and Login', () => {
                 username: 'chiken',
                 password: 'password123'
             })
-            .expect(302)
+            .expect(401)
 
-            expect(res.header.location).toBe('/signup')
+            expect(res.body).toEqual({ message: 'Authentication failed: User not found '})
         })
 
-        it('should redirect to signup if password is incorrect', async () => {
+        it('should give 401 error and message if password is incorrect', async () => {
             mockingoose(User).toReturn(mockUser, 'findOne');
             const res = await request(server)
             .post('/user/login')
@@ -58,9 +58,9 @@ describe('Authentication with Bcrypt and Login', () => {
                 username: 'chicken',
                 password: '123'
             })
-            .expect(302)
+            .expect(401)
 
-            expect(res.header.location).toBe('/signup')
+            expect(res.body).toEqual({ message: 'Authentication failed: Incorrect password '})
         })
     })
 })
