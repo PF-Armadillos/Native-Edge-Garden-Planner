@@ -6,13 +6,13 @@ const PG_URI = process.env.PG_URI;
 const SALT_WORK_FACTOR = 10;
 
 // create a new pool here using the connection string above (connects us to db)
-const pool = new Pool({
-  user: process.env.PG_USER,
-  host: 'lallah.db.elephantsql.com',
-  database: process.env.PG_USER,
-  password: process.env.PG_PASSWORD,
-  port: 5432,
-});
+// const pool = new Pool({
+//   user: process.env.PG_USER,
+//   host: 'lallah.db.elephantsql.com',
+//   database: process.env.PG_USER,
+//   password: process.env.PG_PASSWORD,
+//   port: 5432,
+// });
 
 
 const Schema = mongoose.Schema;
