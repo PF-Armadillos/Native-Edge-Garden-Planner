@@ -50,9 +50,6 @@ function PlantCardSelectTester({
 					<button className='plus' onClick={handleIncrement}>
 						+
 					</button>
-					{/* <button className='submitOrder' onClick={handleSubmit}>
-						Submit Order
-					</button> */}
 				</div>
 			</div>
 		</div>
