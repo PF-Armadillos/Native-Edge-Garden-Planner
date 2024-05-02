@@ -46,7 +46,9 @@ function PlantCardSelectTester({
 					<button className='minus' onClick={handleDecrement}>
 						-
 					</button>
-					<div id='counter'>{counter}</div>
+					<span id='counter'>
+						<strong>{counter}</strong>
+					</span>
 					<button className='plus' onClick={handleIncrement}>
 						+
 					</button>

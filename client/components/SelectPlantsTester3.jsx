@@ -3,7 +3,7 @@ import plantDatabase from '../staticObject.js';
 import PlantCardSelectTester from './PlantCardSelectTester.jsx';
 import { Audio, FidgetSpinner } from 'react-loader-spinner';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 
 export default function SelectPlants() {
 	// setting delay to show how the lazyLoading works.
