@@ -22,7 +22,7 @@ export default function LoginForm() {
       //reset form
       setUsername('');
       setPassword('');
-      navigate('/CreateGarden');
+      navigate('/creategarden');
       e.target.disabled = false;
     } catch (err) {
       console.log('Error: ', err);

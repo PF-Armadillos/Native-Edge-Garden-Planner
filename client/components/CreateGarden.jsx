@@ -15,7 +15,7 @@ const CreateGarden = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      navigate('/SelectPlantsTester3');
+      navigate('/selectplantstester3');
     } catch (error) {
       // Log any errors that occur during the try block
       console.error('Error fetching plant data:', error);
