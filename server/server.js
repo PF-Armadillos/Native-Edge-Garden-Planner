@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 require('dotenv').config();
-
+const cors = require('cors')
 //user dependancies
 
 const userRouter = require('./routes/userRoutes');
@@ -11,6 +11,7 @@ const plantDataController = require('./controllers/plantDataController');
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors())
 app.use(express.json());
 //app.use(express.urlencoded({ extended: true }));
 

@@ -15,26 +15,32 @@ export default function LoginForm({ setIsAuthenticated, setUser }) {
       e.target.disabled = true;
       setError('');
 
-      const res = await fetch('http://localhost:3000/login', {
+      const res = await fetch('http://localhost:3000/user/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: username, password: password }),
+        //credentials: 'include' // use if end up using cookie
       });
+      const data = res.json()
+
+      if (res.ok && data) {
+        setIsAuthenticated(true);
+        setUser(data); //global user state
+        navigate('/creategarden');
+      } else {
+        setIsAuthenticated(false);
+        setUser(null);
+        setError(data.message || 'Incorrect username or password');
+      }
       if (!res) throw console.log('Something went wrong!');
       console.log(res);
+    } catch (err) {
+      console.log('Error: ', err);
+    } finally {
       //reset form
       setUsername('');
       setPassword('');
       e.target.disabled = false;
-      setIsAuthenticated(true);
-      setUser(data); //global user state
-      if (res.ok && data) {
-        navigate('/creategarden');
-      } else {
-        setError('Incorrect username or password');
-      }
-    } catch (err) {
-      console.log('Error: ', err);
     }
   };
 
