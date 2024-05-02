@@ -7,6 +7,7 @@ import { MemoryRouter } from "react-router-dom";
 import SignUp from "../client/components/SignUp";
 import Header from "../client/components/Header";
 import CreateGarden from "../client/components/CreateGarden";
+import { experiments } from "webpack";
 
 
 describe("Login Form component test", () => {
@@ -126,4 +127,40 @@ describe('Create Garden Component', () => {
         )
         expect(screen.getByText('Location')).toBeInTheDocument();
     })
+    test('Renders Length of garden', () => {
+        render(
+            <MemoryRouter>
+                <CreateGarden />
+            </MemoryRouter>
+        )
+        expect(screen.getByText('Length of garden bed (inches)')).toBeInTheDocument();
+    })
+    test('Renders Width of garden', () => {
+        render(
+            <MemoryRouter>
+                <CreateGarden />
+            </MemoryRouter>
+        )
+        expect(screen.getByText('Width of garden bed (inches)')).toBeInTheDocument();
+    })
+    test('Renders Button', async () => {
+        render(
+            <MemoryRouter>
+                <CreateGarden />
+            </MemoryRouter>
+        )
+        const button = await screen.getByRole('button')
+        expect(button).toBeInTheDocument();
+        expect(button).toHaveTextContent('Submit');
+    })
+    // test('Accepts input for Location', async () => {
+    //     render(
+    //         <MemoryRouter>
+    //             <CreateGarden />
+    //         </MemoryRouter>
+    //     )
+    //     const locationTest = screen.getByLabelText('Location')
+    //     fireEvent.change(locationTest, { target: { value: 'testing Location' } }); 
+    //     expect(locationTest.value).toEqual('testing Location');
+    // })
 })
