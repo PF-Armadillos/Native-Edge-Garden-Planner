@@ -4,12 +4,8 @@ const mongoose = require('mongoose');
 const MONGO_URI = process.env.MONGO_URI ;
 const SALT_WORK_FACTOR = 10;
 
-mongoose
-  .connect(MONGO_URI,{
-     dbName: 'Users',
-  })
-  .then(()=> console.log('Connected to Mongo DB.'))
-  .catch((err) => console.log(err));
+//create unique connections to each database
+userConn = mongoose.createConnection(MONGO_URI,{dbName: 'userDB',});
 
 const Schema = mongoose.Schema;
 console.log(MONGO_URI);
@@ -37,5 +33,5 @@ userSchema.pre('save', async function (next) {
     return bcrypt.compare(data, this.password);
   }
 
-const User = mongoose.model('user', userSchema);
+const User = userConn.model('user', userSchema);
 module.exports = User;
