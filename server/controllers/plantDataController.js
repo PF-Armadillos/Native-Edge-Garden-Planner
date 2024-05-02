@@ -1,58 +1,53 @@
-// const Plant = require('../models/plantModel');
-const mongoose = require('mongoose');
+const Plant = require('../models/plantModel');
 require('dotenv').config();
-
-const MONGO_URI = process.env.MONGO_URI;
-
-mongoose
-  .connect(MONGO_URI)
-  .then(() => console.log('Connected to Mongo DB.'))
-  .catch((err) => console.log(err));
-
-const Schema = mongoose.Schema;
-
-const plantSchema = new Schema({});
-
-const Plant = mongoose.model('plant', plantSchema, 'plants6');
+const plantDatabase = require('../../client/staticObject')
+// const MONGO_URI = process.env.MONGO_URI;
 
 const plantDataController = {};
 
-// helper function to create fileController error objects
-// return value will be the object we pass into next, invoking global error handler
-const createErr = (errInfo) => {
-  const { method, type, err } = errInfo;
-  return {
-    log: `plantDataController.${method} ${type}: ERROR: ${
-      typeof err === 'object' ? JSON.stringify(err) : err
-    }`,
-    message: {
-      err: `Error occurred in plantDataController.${method}. Check server logs for more details.`,
-    },
-  };
-};
+// //Function to write staticobject JS file to database. 
+// //Used only once
+// writePlants = async (obj) => {
+//   const { _id, State, Species, CommonName, Duration, Habit, Light, Water, Thumb} = obj;
+//   try {      
+//     const collection = await Plant.create({ 
+//       _id: _id,
+//     State: State,
+//     Species: Species,
+//     CommonName: CommonName,
+//     Duration: Duration,
+//     Habit: Habit,
+//     Light: Light,
+//     Water: Water,
+//     Thumb: Thumb
+//     });
+//   } catch (err) {
+//     console.log('Error', err)
+//   }
+// };
+
+// plantDatabase.map(writePlants);
 
 plantDataController.getPlants = async (req, res, next) => {
   try {
-    //get specific data
     const location = req.query.location;
+    console.log('Location is', location);
     const data = await Plant.find({ State: location });
-    console.log(data);
-    // if (data.length === 0)
-    //   throw createErr({
-    //     method: 'getPlants',
-    //     type: 'DB',
-    //     err: 'Entry Not found',
-    //   });
+    console.log('Data is', data);
+    console.log('Data length is ', data.length)
+    if(!data.length) {
+      throw new Error('data not found')
+    }
+
     res.locals.plants = data;
     return next();
   } catch (err) {
-    return next(
-      createErr({
-        method: `getPlants`,
-        type: 'DB',
-        err: err,
-      })
-    );
+    console.log('Error', err)
+    return next({
+      log: 'Express error handler caught unknown middleware error for getplants',
+      status: 500,
+      message: { err: 'An error occurred in getting plants' },
+  });
   }
 };
 

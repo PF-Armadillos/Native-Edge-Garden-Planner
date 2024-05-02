@@ -1233,4 +1233,5 @@ const plantDatabase = [
   },
 ];
 
-export default plantDatabase;
+// export default plantDatabase;
+module.exports = plantDatabase;

@@ -1,16 +1,25 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
+const Schema = mongoose.Schema;
 
 const MONGO_URI = process.env.MONGO_URI;
 
-mongoose
-  .connect(MONGO_URI)
-  .then(() => console.log('Connected to Mongo DB.'))
-  .catch((err) => console.log(err));
+//create unique connections to each database
+plantConn = mongoose.createConnection(MONGO_URI,{dbName: 'plantDB',});
 
-const Schema = mongoose.Schema;
+const plantSchema = new Schema({
+    _id: { type: String, required: true },
+    State: { type: String, required: true},
+    Species: String,
+    CommonName: String,
+    Duration: String,
+    Habit: String,
+    Light: String,
+    Water: String,
+    Thumb: String,
+});
 
-const plantSchema = new Schema({});
+const Plant = plantConn.model('plant', plantSchema);
 
-const Plant = mongoose.model('plant', plantSchema, 'plants6');
 module.exports = Plant;
+
