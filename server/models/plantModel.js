@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const MONGO_URI = process.env.MONGO_URI;
 
 //create unique connections to each database
-plantConn = mongoose.createConnection(MONGO_URI,{dbName: 'plantDB',});
+const plantConn = mongoose.createConnection(MONGO_URI,{dbName: 'plantDB',});
 
 const plantSchema = new Schema({
     _id: { type: String, required: true },

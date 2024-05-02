@@ -31,13 +31,15 @@ userController.verifyUser = async (req, res, next) => {
     const { username, password } = req.body;
     const user = await db.findOne({ username });
     if(!user) {
-      return res.redirect('/signup');  //assuming we have a signup endpoint
+      return res.status(401).json({ message: 'Authentication failed: User not found '});  
     }
 
     const match = await user.validatePassword(password);
     if (!match) {
-      return res.redirect('/signup');
+      return res.status(401).json( { message: 'Authentication failed: Incorrect password '});
     }
+
+    rq.session.userId = user._id;
 
     res.locals.user = user;
 
@@ -52,16 +54,6 @@ userController.verifyUser = async (req, res, next) => {
   }
 };
 
-// userController.showTable = (req, res, next) => {
-//   const pullTable = "SELECT * FROM users"; // need table name.
-//   db.query(pullTable)
-//     .then((data) => {
-//       console.log(data);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
 
 module.exports = userController;
 

@@ -80,7 +80,7 @@ describe('Route integration', () => {
             expect(response.body).toEqual({ err: 'An error occurred in getting plants'})
         })
     
-    describe('/ihatetesting', () => {
+    describe('/randomendpoint', () => {
         it('404 error handler', async () => {
             await request(server)
             .get('/ihatetesting')
