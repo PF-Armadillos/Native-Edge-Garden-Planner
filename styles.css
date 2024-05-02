@@ -2,107 +2,107 @@
 /* Classes */
 
 * {
-	font-family: Roboto;
+  font-family: Roboto;
 }
 body {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	grid-template-rows: 100px auto;
-	justify-items: center;
-	color: hsl(0, 0%, 38%);
-	width: 100%;
-	margin: 0;
-	padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 100px auto;
+  justify-items: center;
+  color: hsl(0, 0%, 38%);
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 #navbar {
-	grid-row-start: 1;
-	grid-row-end: 2;
-	display: flex;
-	grid-column: 1 / span 7;
-	width: 100%;
-	justify-content: center;
-	align-items: center;
-	background-color: #d4f4fa;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  grid-column: 1 / span 7;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #d4f4fa;
 }
 #loginform-con {
-	grid-row-start: 2;
-	grid-row-end: 3;
-	width: 100%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
 }
 h1 {
-	color: hsl(0, 0%, 28%);
-	text-align: center;
+  color: hsl(0, 0%, 28%);
+  text-align: center;
 }
 h2 {
-	color: hsl(0, 0%, 38%);
-	text-align: center;
+  color: hsl(0, 0%, 38%);
+  text-align: center;
 }
 button {
-	background-color: hsl(143, 49%, 43%);
-	border: none;
-	border-radius: 5px;
-	padding: 10px;
-	margin: 20px;
-	color: hsla(0, 0%, 100%, 0.98);
-	font-weight: bold;
-	font-size: 1.5em;
+  background-color: hsl(143, 49%, 43%);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+  color: hsla(0, 0%, 100%, 0.98);
+  font-weight: bold;
+  font-size: 1.5em;
 }
 button:hover {
-	background-color: hsl(143, 49%, 33%);
-	transition: 7ms;
+  background-color: hsl(143, 49%, 33%);
+  transition: 7ms;
 }
 .button2 {
-	background-color: none;
-	font-size: 1.25em;
-	padding: 10px;
-	color: hsl(143, 49%, 43%);
-	border-width: 2px;
-	border: hsl(143, 49%, 43%);
-	background-color: white;
-	border-radius: 5px;
+  background-color: none;
+  font-size: 1.25em;
+  padding: 10px;
+  color: hsl(143, 49%, 43%);
+  border-width: 2px;
+  border: hsl(143, 49%, 43%);
+  background-color: white;
+  border-radius: 5px;
 }
 .button2:hover {
-	color: hsl(143, 51%, 23%);
+  color: hsl(143, 51%, 23%);
 }
 .container {
-	grid-column-start: 3;
-	grid-column-end: 6;
-	background-color: hsl(38, 100%, 94%);
-	margin: 70px;
-	border-radius: 70px;
-	grid-row-start: 2;
-	grid-row-end: 3;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 20px;
+  grid-column-start: 3;
+  grid-column-end: 6;
+  background-color: hsl(38, 100%, 94%);
+  margin: 70px;
+  border-radius: 70px;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 #welcome-header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	/* margin:40px; */
-	margin-bottom: 20px;
-	text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin:40px; */
+  margin-bottom: 20px;
+  text-align: center;
 }
 form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
 }
 label {
-	margin-bottom: 2px;
+  margin-bottom: 2px;
 }
 input {
-	margin-bottom: 15px;
-	border-radius: 5px;
-	border: none;
-	box-shadow: 0 2px 13px hsla(0, 0%, 50%, 0.2);
-	height: 22px;
-	opacity: 70%;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 13px hsla(0, 0%, 50%, 0.2);
+  height: 22px;
+  opacity: 70%;
 }
 /* ID's
 //Page layout
@@ -119,7 +119,7 @@ form labels */
 @tailwind utilities; */
 
 .PlantContainer {
-	/* width: 100%;
+  /* width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -127,13 +127,13 @@ form labels */
   align-items: flex-start; */
 }
 .plantcard {
-	/* width: 300px;s
+  /* width: 300px;s
     height: 200px; */
-	/* display: flex; */
-	/* margin: 10px; */
-	/* text-align: center; */
-	/* border: 1px solid #ffffff; */
-	/* border-radius: 5px;
+  /* display: flex; */
+  /* margin: 10px; */
+  /* text-align: center; */
+  /* border: 1px solid #ffffff; */
+  /* border-radius: 5px;
   padding: 20px;
   background-color: #add2c1ca;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
@@ -146,36 +146,36 @@ form labels */
   max-width: 100%; 
 } */
 .plantcard:hover {
-	/* background-color: #a0b7ad; */
+  /* background-color: #a0b7ad; */
 }
 .plantcard img {
-	/* width: 50%; */
-	/* transform-origin: top left; 
+  /* width: 50%; */
+  /* transform-origin: top left; 
   transform: scale(0.5); */
 }
 .plantcard p {
-	/* display: flex;
+  /* display: flex;
   flex-direction: column;
   margin-left: 10px; */
 }
 .plantcard div {
-	/* display: flex; */
+  /* display: flex; */
 }
 .plantcard button {
-	/* margin: 1px;
+  /* margin: 1px;
   padding: 1px;
   font-size: 1em;
   height: 20px; */
-	/* width:50px; */
+  /* width:50px; */
 }
 
 /* Jayans additions */
 .plant-columns {
-	margin-top: 30px;
-	grid-column-start: 1;
-	grid-column-end: 8;
-	display: flex;
-	justify-content: space-evenly; /* Distributes space evenly */
+  margin-top: 30px;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  display: flex;
+  justify-content: space-evenly; /* Distributes space evenly */
 }
 
 .column {
@@ -184,82 +184,83 @@ form labels */
   padding: 10px;
   border-radius: 5px;
 
-.plant-card {
-	margin: 10px 0; /* Spacing between cards */
-	padding: 10px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
-	padding: 20px;
-	background-color: #add2c1ca;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
-	width: 380px;
-	height: 605px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  .plant-card {
+    margin: 10px 0; /* Spacing between cards */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #add2c1ca;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
+    width: 380px;
+    height: 605px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-	/* display: grid;
+    /* display: grid;
   grid-template-columns: 1fr 2fr; */
-	/* justify-items: center; */
-}
-.plant-card:hover {
-	background-color: #a0b7ad;
-}
+    /* justify-items: center; */
+  }
+  .plant-card:hover {
+    background-color: #a0b7ad;
+  }
 
-.plant-image-small {
-	/* width: 10%; Small images for the cards */
-	/* height: auto;
+  .plant-image-small {
+    /* width: 10%; Small images for the cards */
+    /* height: auto;
   margin-bottom: 10px; */
-	width: 400;
-	height: 300;
-	max-height: 30%;
+    width: 400;
+    height: 300;
+    max-height: 30%;
 
-	/* transform: scale(0.75); */
-	display: flex;
-	justify-content: center;
-	border: 0.5px;
-	border-radius: 5px;
-	object-fit: cover;
-}
-.plant-image-small img {
-	width: 100%;
-	height: 100%;
+    /* transform: scale(0.75); */
+    display: flex;
+    justify-content: center;
+    border: 0.5px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  .plant-image-small img {
+    width: 100%;
+    height: 100%;
 
-	/* object-fit: cover;  */
-	object-fit: cover;
-	border-radius: 5px;
-}
+    /* object-fit: cover;  */
+    object-fit: cover;
+    border-radius: 5px;
+  }
 
-.plant-details {
-	text-align: center;
-}
+  .plant-details {
+    text-align: center;
+  }
 
-/* for loader */
-.loading-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+  /* for loader */
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.loading-spinner {
-	width: 80px;
-	height: 80px;
-}
+  .loading-spinner {
+    width: 80px;
+    height: 80px;
+  }
 
-@media (max-width: 768px) {
-	.plant-columns {
-		flex-direction: column;
-		align-items: center;
-	}
+  @media (max-width: 768px) {
+    .plant-columns {
+      flex-direction: column;
+      align-items: center;
+    }
 
-	.column {
-		width: 100%; /* Full width on smaller screens */
-	}
+    .column {
+      width: 100%; /* Full width on smaller screens */
+    }
+  }
 }

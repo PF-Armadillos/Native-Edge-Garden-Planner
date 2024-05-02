@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const Store = require('conect-mongo');
+const Store = require('connect-mongo');
 require('dotenv').config();
 
 //user dependancies
