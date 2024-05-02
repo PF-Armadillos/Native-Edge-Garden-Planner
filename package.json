@@ -23,6 +23,7 @@
     "globalSetup": "./jest-setup.js",
     "globalTeardown": "./jest-teardown.js",
     "testEnvironment": "node",
+    "detectOpenHandles": true,
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
@@ -42,10 +43,13 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "@testing-library/react": "^15.0.5",
+    "babel-jest": "^29.7.0",
     "bcryptjs": "^2.4.3",
     "build": "^0.1.4",
+    "connect-mongo": "^5.1.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "jest-environment-jsdom": "^29.7.0",
     "mockingoose": "^2.16.2",
     "mongoose": "^8.3.2",

@@ -57,7 +57,4 @@ describe('User Route tests', () => {
               .expect(200);
         });
     });
-
-
-
 });
