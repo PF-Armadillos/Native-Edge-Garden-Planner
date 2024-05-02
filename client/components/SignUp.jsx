@@ -33,7 +33,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div id='loginform' className='container'>
+    <div id='signupform' className='container'>
       <h1>Sign up</h1>
       <form className='login-form' onSubmit={submit}>
         <InputLabel for='username' value='User Name: ' />

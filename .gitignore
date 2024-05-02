@@ -32,3 +32,5 @@ pids
 #secrets
 confidential.js
 *.env
+
+package-lock.json
