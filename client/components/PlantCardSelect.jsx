@@ -28,6 +28,7 @@ export default function PlantCardSelect({
       select(id);
     }
   }
+  // Previous version from M
   // const select = (plantId) => dispatch(SelectPlant(plantId));
   // const deselect = (plantId) => dispatch(deselectPlant(plantId));
   // let checked = false;
@@ -51,6 +52,9 @@ export default function PlantCardSelect({
       <p className='duration'>Duration: {duration}</p>
       <p className='light'>Light: {light}</p>
       <p className='water'>Water: {water}</p>
+      {/* Peter here */}
+      {/* use handleClick */}
+      <button onClick={handleClick}>Check the state</button>
     </div>
   );
 }
