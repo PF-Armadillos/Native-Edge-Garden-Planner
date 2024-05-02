@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const Schema = mongoose.Schema;
 
-const MONGO_URI = process.env.MONGO_URI;
+// const MONGO_URI = process.env.MONGO_URI;
 
 const plantSchema = new Schema({
     _id: { type: String, required: true },
