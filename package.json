@@ -23,6 +23,7 @@
     "globalSetup": "./jest-setup.js",
     "globalTeardown": "./jest-teardown.js",
     "testEnvironment": "jest-environment-jsdom",
+    "detectOpenHandles": true,
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
@@ -45,9 +46,11 @@
     "babel-jest": "^29.7.0",
     "bcryptjs": "^2.4.3",
     "build": "^0.1.4",
+    "connect-mongo": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "jest-environment-jsdom": "^29.7.0",
     "mockingoose": "^2.16.2",
     "mongoose": "^8.3.2",
@@ -55,6 +58,7 @@
     "puppeteer": "^22.7.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-loader-spinner": "^6.1.6",
     "react-redux": "^9.1.1",
     "react-router-dom": "^6.23.0"
   },

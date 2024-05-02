@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 // import { Switch, Route } from 'react-router-dom';
 import LoginForm from './components/LoginForm.jsx';
 import Header from './components/Header.jsx';
