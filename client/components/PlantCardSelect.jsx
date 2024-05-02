@@ -14,19 +14,34 @@ export default function PlantCardSelect({
 }) {
   //create plant Id when making all the regular plant cards
   const dispatch = useDispatch();
-  const select = (plantId) => dispatch(SelectPlant(plantId));
-  const deselect = (plantId) => dispatch(deselectPlant(plantId));
-  let checked = false;
+  // use the reducer
+  const selectedPlants = useSelector((state) => state.plants.selectedPlants);
+  const select = (id) => dispatch(selectPlant(id));
+  const deselect = (id) => dispatch(deselectPlant(id));
 
-  if (checked) {
-    deselect(e.target.id);
-    e.target.classList.add('selected');
-    checked = !checked;
-  } else {
-    select(e.target.id);
-    e.target.classList.remove('selected');
-    checked = !checked;
+  // handleClick
+  const handleClick = (e) => {
+    const id = e.currentTarget.id;
+    if(selectedPlants.includes(id)) {
+      deselect(id);
+    } else {
+      select(id);
+    }
   }
+  // Previous version from M
+  // const select = (plantId) => dispatch(SelectPlant(plantId));
+  // const deselect = (plantId) => dispatch(deselectPlant(plantId));
+  // let checked = false;
+
+  // if (checked) {
+  //   deselect(e.target.id);
+  //   e.target.classList.add('selected');
+  //   checked = !checked;
+  // } else {
+  //   select(e.target.id);
+  //   e.target.classList.remove('selected');
+  //   checked = !checked;
+  // }
 
   return (
     <div className='plantBox' onClick={handleClick} id={plantId}>
@@ -37,6 +52,9 @@ export default function PlantCardSelect({
       <p className='duration'>Duration: {duration}</p>
       <p className='light'>Light: {light}</p>
       <p className='water'>Water: {water}</p>
+      {/* Peter here */}
+      {/* use handleClick */}
+      <button onClick={handleClick}>Check the state</button>
     </div>
   );
 }

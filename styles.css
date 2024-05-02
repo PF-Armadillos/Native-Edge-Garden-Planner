@@ -119,53 +119,53 @@ form labels */
 @tailwind utilities; */
 
 .PlantContainer {
-  width: 100%;
+  /* width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: flex-start; */
 }
 .plantcard {
   /* width: 300px;s
     height: 200px; */
   /* display: flex; */
-  margin: 10px;
+  /* margin: 10px; */
   /* text-align: center; */
   /* border: 1px solid #ffffff; */
-  border-radius: 5px;
+  /* border-radius: 5px;
   padding: 20px;
   background-color: #add2c1ca;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
   width: 300px;
   font-size: 10px;
   display: flex;
-  flex: 0 0 auto;
+  flex: 0 0 auto; */
 }
 /* .plantcard > * {
   max-width: 100%; 
 } */
 .plantcard:hover {
-  background-color: #a0b7ad;
+  /* background-color: #a0b7ad; */
 }
 .plantcard img {
-  width: 50%;
+  /* width: 50%; */
   /* transform-origin: top left; 
   transform: scale(0.5); */
 }
 .plantcard p {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  margin-left: 10px; */
 }
 .plantcard div {
-  display: flex;
+  /* display: flex; */
 }
 .plantcard button {
-  margin: 1px;
+  /* margin: 1px;
   padding: 1px;
   font-size: 1em;
-  height: 20px;
+  height: 20px; */
   /* width:50px; */
 }
 
@@ -175,7 +175,7 @@ form labels */
   grid-column-start: 1;
   grid-column-end: 8;
   display: flex;
-  justify-content: space-around; /* Distributes space evenly */
+  justify-content:  space-evenly; /* Distributes space evenly */
 }
 
 .column {
@@ -193,10 +193,16 @@ form labels */
   padding: 20px;
   background-color: #add2c1ca;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
+  width: 380px;
+  height: 605px;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  
   /* display: grid;
   grid-template-columns: 1fr 2fr; */
-  /* align-items: center;
-  justify-items: center; */
+  /* justify-items: center; */ 
 }
 .plant-card:hover {
   background-color: #a0b7ad;
@@ -206,14 +212,49 @@ form labels */
   /* width: 10%; Small images for the cards */
   /* height: auto;
   margin-bottom: 10px; */
-  transform: scale(0.75);
-  /* display: flex;
-  justify-content: center; */
+  width: 400;
+  height: 300;
+  max-height: 30%; 
+
+  /* transform: scale(0.75); */
+  display: flex;
+  justify-content: center;
+  border:0.5px;
+  border-radius:5px;
+  object-fit: cover;
 }
+.plant-image-small img {
+    width: 100%; 
+    height: 100%;
+
+    /* object-fit: cover;  */
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
 
 .plant-details {
   text-align: center;
 }
+
+/* for loader */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading-spinner {
+    width: 80px;
+    height: 80px;
+  }
+  
 
 @media (max-width: 768px) {
   .plant-columns {

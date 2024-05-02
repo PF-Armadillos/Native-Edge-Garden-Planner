@@ -1,8 +1,22 @@
-import React from 'react';
-import PlantCardSelectTester from './PlantCardSelectTester.jsx';
+import React, { lazy,Suspense,useState } from 'react';
 import plantDatabase from '../staticObject.js';
+import PlantCardSelectTester from './PlantCardSelectTester.jsx';
+import { Audio,FidgetSpinner } from 'react-loader-spinner'
+
+
+
+
+
 
 export default function SelectPlants() {
+        // setting delay to show how the lazyLoading works.
+        const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        const LazyPlantCardSelect = lazy(async () => {
+            await delay(2000); // delay 2sec
+            return import('./PlantCardSelectTester.jsx');}
+        )
+
+
   const groupByHabit = (plants) => {
     return plants.reduce((group, plant) => {
       const { Habit } = plant;
@@ -15,12 +29,31 @@ export default function SelectPlants() {
   const plantsByHabit = groupByHabit(plantDatabase);
 
   return (
+    <Suspense fallback={<div className='loading-overlay'><div className='loading-spinner'><FidgetSpinner
+        visible={true}
+        height="220"
+        width="220"
+        ariaLabel="fidget-spinner-loading"
+        wrapperStyle={{}}
+        wrapperClass="fidget-spinner-wrapper"
+        /></div></div>}>
+    {/* <Suspense fallback={<div className="loading-overlay">
+    <div className="loading-spinner"><Audio
+        height="80"
+        width="80"
+        radius="9"
+        color="hsl(143, 49%, 43%)"
+        ariaLabel="three-dots-loading"
+        wrapperStyle
+        wrapperClass
+      /></div></div>}> */}
+
     <div className="plant-columns">
       {['Tree', 'Shrub', 'Herb'].map((habit) => (
         <div className="column" key={habit}>
           <h2>{habit}</h2>
           {plantsByHabit[habit]?.map((plant) => (
-            <PlantCardSelectTester
+            <LazyPlantCardSelect
               commonName={plant.CommonName}
               species={plant.Species}
               duration={plant.Duration}
@@ -31,9 +64,11 @@ export default function SelectPlants() {
               plantId={plant._id}
               key={plant._id}
             />
-          ))}
+          )
+        )}
         </div>
       ))}
     </div>
+    </Suspense>
   );
 }
