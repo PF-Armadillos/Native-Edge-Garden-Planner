@@ -1,23 +1,32 @@
 const Plant = require('../models/plantModel');
 require('dotenv').config();
-
+const plantDatabase = require('../../client/staticObject')
 // const MONGO_URI = process.env.MONGO_URI;
 
 const plantDataController = {};
 
-// helper function to create fileController error objects
-// return value will be the object we pass into next, invoking global error handler
-// const createErr = (errInfo) => {
-//   const { method, type, err } = errInfo;
-//   return {
-//     log: `plantDataController.${method} ${type}: ERROR: ${
-//       typeof err === 'object' ? JSON.stringify(err) : err
-//     }`,
-//     message: {
-//       err: `Error occurred in plantDataController.${method}. Check server logs for more details.`,
-//     },
-//   };
+// //Function to write staticobject JS file to database. 
+// //Used only once
+// writePlants = async (obj) => {
+//   const { _id, State, Species, CommonName, Duration, Habit, Light, Water, Thumb} = obj;
+//   try {      
+//     const collection = await Plant.create({ 
+//       _id: _id,
+//     State: State,
+//     Species: Species,
+//     CommonName: CommonName,
+//     Duration: Duration,
+//     Habit: Habit,
+//     Light: Light,
+//     Water: Water,
+//     Thumb: Thumb
+//     });
+//   } catch (err) {
+//     console.log('Error', err)
+//   }
 // };
+
+// plantDatabase.map(writePlants);
 
 plantDataController.getPlants = async (req, res, next) => {
   try {
