@@ -7,6 +7,5 @@ export default function Header() {
                 ShellScape Garden Planner
             </h1>
         </div>
-            
     );
 };

@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
-export default function InputError({ message, className = '' }) {
-  return message ? (
-    <p className={'text-sm text-red-600 ' + className}>{message}</p>
-  ) : null;
-}
+// export default function InputError({ message, className = '' }) {
+//   return message ? (
+//     <p className={'text-sm text-red-600 ' + className}>{message}</p>
+//   ) : null;
+// }

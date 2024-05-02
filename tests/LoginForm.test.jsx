@@ -2,6 +2,8 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import LoginForm from '../client/components/LoginForm';
 import { MemoryRouter } from 'react-router-dom';
+import '@testing-library/jest-dom/extend-expect';
+
 
 describe('LoginForm component', () => {
   test('updates username and password state on input change', () => {
