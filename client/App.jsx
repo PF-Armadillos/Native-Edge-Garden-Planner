@@ -25,7 +25,12 @@ const App = () => {
             />
           }
         />
-        <Route path='/signup' element={<SignUp />} />
+        <Route
+          path='/signup'
+          element={
+            <SignUp setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
+          }
+        />
         <Route
           path='/creategarden'
           element={

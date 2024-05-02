@@ -21,7 +21,7 @@ export default function LoginForm({ setIsAuthenticated, setUser }) {
         body: JSON.stringify({ username: username, password: password }),
         //credentials: 'include' // use if end up using cookie
       });
-      const data = res.json()
+      const data = await res.json()
 
       if (res.ok && data) {
         setIsAuthenticated(true);
@@ -76,10 +76,10 @@ export default function LoginForm({ setIsAuthenticated, setUser }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-      </form>
       <button type='submit'>
         Login
       </button>
+      </form>
       <button
         onClick={handleClick2}
         type='submit'

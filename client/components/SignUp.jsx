@@ -21,7 +21,7 @@ export default function LoginForm({ setIsAuthenticated, setUser }) {
         body: JSON.stringify({ username: username, password: password }),
         //credentials: 'include' // use if end up using cookie
       });
-      const data = res.json()
+      const data = await res.json();
 
       if (res.ok && data) {
         setIsAuthenticated(true);
@@ -48,8 +48,8 @@ export default function LoginForm({ setIsAuthenticated, setUser }) {
     <div id='signupform' className='container'>
       <h1>Sign up</h1>
       <form className='login-form' onSubmit={submit}>
-      {error && <div className="error-message">{error}</div>}
-      <label for = 'username'>User Name: </label>      
+        {error && <div className='error-message'>{error}</div>}
+        <label for='username'>User Name: </label>
         <div className='flex flex-col items-start'>
           <input
             type='username'
@@ -70,8 +70,8 @@ export default function LoginForm({ setIsAuthenticated, setUser }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <button type='submit'>Create User</button>
       </form>
-      <button type='submit'>Create User</button>
     </div>
   );
 }

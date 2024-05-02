@@ -3,7 +3,7 @@ const testServer = require('../server/server');
 const puppeteer = require('puppeteer');
 
 //Test case for Sign Up
-xdescribe('Frontend & Backend Sign up integration tests', () => {
+describe('Frontend & Backend Sign up integration tests', () => {
   // Backend
   describe('User signup response with 200 status', () => {
     afterAll(() => {
