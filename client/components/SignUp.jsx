@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import TextInput from './unUsedComponents/TextInput.jsx';
-import InputError from './unUsedComponents/InputError.jsx';
-import InputLabel from './unUsedComponents/InputLabel.jsx';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header.jsx';
 
@@ -36,28 +33,28 @@ export default function LoginForm() {
     <div id='signupform' className='container'>
       <h1>Sign up</h1>
       <form className='login-form' onSubmit={submit}>
-        <InputLabel for='username' value='User Name: ' />
-        <TextInput
-          id='username'
-          className='text-input'
-          value={username}
-          handleChange={(e) => setUsername(e.target.value)}
-          required
-          isFocused
-        />
-        <InputError for='username' value='username' />
+      <label for = 'username'>User Name: </label>      
+        <div className='flex flex-col items-start'>
+          <input
+            type='username'
+            name=''
+            id='username'
+            value= {username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        
 
-        <InputLabel for='password' value='Password: ' />
-        <TextInput
-          id='password'
-          type='password'
-          className='text-input'
-          value={password}
-          handleChange={(e) => setPassword(e.target.value)}
-          required
-          isFocused
-        />
-        <InputError for='password' value='password' />
+         <label for='password'> Password: </label>
+        <div>
+          <input
+            type='password'
+            name=''
+            id='password'
+            value= {password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
       </form>
       <button onClick={submit} type='submit'>
         Create User

@@ -33,4 +33,6 @@ pids
 confidential.js
 *.env
 
+.DS_Store
+
 package-lock.json

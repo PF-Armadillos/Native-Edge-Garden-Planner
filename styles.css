@@ -193,6 +193,8 @@ form labels */
   padding: 20px;
   background-color: #add2c1ca;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
+  width: 380px;
+  height: 605px;
   /* display: grid;
   grid-template-columns: 1fr 2fr; */
   /* align-items: center;
@@ -206,6 +208,8 @@ form labels */
   /* width: 10%; Small images for the cards */
   /* height: auto;
   margin-bottom: 10px; */
+  width: 240px;
+  height: 180px;
   transform: scale(0.75);
   /* display: flex;
   justify-content: center; */
