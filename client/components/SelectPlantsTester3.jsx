@@ -9,7 +9,9 @@ export default function SelectPlants() {
 	// setting delay to show how the lazyLoading works.
 	const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 	const LazyPlantCardSelect = lazy(async () => {
-		await delay(2000); // delay 2sec
+    
+		await delay(500); // delay 2sec
+
 		return import('./PlantCardSelectTester.jsx');
 	});
 
@@ -26,27 +28,10 @@ export default function SelectPlants() {
 
 	const plantsByHabit = groupByHabit(plantDatabase);
 
-	// const addPlant = () => {
-	// 	setSelectId(selectId.push({ plantId: count }));
-	// };
 
 	return (
-		<Suspense
-			fallback={
-				<div className='loading-overlay'>
-					<div className='loading-spinner'>
-						<FidgetSpinner
-							visible={true}
-							height='220'
-							width='220'
-							ariaLabel='fidget-spinner-loading'
-							wrapperStyle={{}}
-							wrapperClass='fidget-spinner-wrapper'
-						/>
-					</div>
-				</div>
-			}>
-			{/* <Suspense fallback={<div className="loading-overlay">
+		
+			<Suspense fallback={<div className="loading-overlay">
     <div className="loading-spinner"><Audio
         height="80"
         width="80"
@@ -55,7 +40,7 @@ export default function SelectPlants() {
         ariaLabel="three-dots-loading"
         wrapperStyle
         wrapperClass
-      /></div></div>}> */}
+      /></div></div>}>
 
 			<div className='plant-columns'>
 				{['Tree', 'Shrub', 'Herb'].map((habit) => (

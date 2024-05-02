@@ -179,11 +179,10 @@ form labels */
 }
 
 .column {
-	width: 33%; /* Each column takes up roughly one-third of the width */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	padding: 10px;
-	border-radius: 5px;
-}
+  width: 33.33%; /* Each column takes up roughly one-third of the width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
 
 .plant-card {
 	margin: 10px 0; /* Spacing between cards */
