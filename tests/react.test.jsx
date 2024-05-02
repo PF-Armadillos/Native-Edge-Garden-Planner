@@ -153,14 +153,23 @@ describe('Create Garden Component', () => {
         expect(button).toBeInTheDocument();
         expect(button).toHaveTextContent('Submit');
     })
-    // test('Accepts input for Location', async () => {
-    //     render(
-    //         <MemoryRouter>
-    //             <CreateGarden />
-    //         </MemoryRouter>
-    //     )
-    //     const locationTest = screen.getByLabelText('Location')
-    //     fireEvent.change(locationTest, { target: { value: 'testing Location' } }); 
-    //     expect(locationTest.value).toEqual('testing Location');
-    // })
+    test('Accepts input for Location', async () => {
+        render(
+            <MemoryRouter>
+                <CreateGarden />
+            </MemoryRouter>
+        )
+        const locationTest = screen.getByLabelText('Location');
+        fireEvent.change(locationTest, { target: { value: 'testing Location' } }); 
+        expect(locationTest.value).toBe('testing Location');
+
+        const lengthTest = screen.getByLabelText('Length of garden bed (inches)');
+        fireEvent.change(lengthTest, { target: { value: 'testing Length' } }); 
+        expect(lengthTest.value).toBe('testing Length');
+
+        const widthTest = screen.getByLabelText('Width of garden bed (inches)');
+        fireEvent.change(widthTest, { target: { value: 'testing Width' } }); 
+        expect(widthTest.value).toBe('testing Width');
+    })
 })
+

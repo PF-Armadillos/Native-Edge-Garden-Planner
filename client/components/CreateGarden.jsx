@@ -29,21 +29,21 @@ const CreateGarden = () => {
         <h2 data-testid="header2">Complete the form below to get started!</h2>
       </div>
       <form id='welcome-form'>
-        <label>Location</label>
+        <label for = 'location'>Location</label>
         <input
           type='text'
           id='location'
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         ></input>
-        <label>Length of garden bed (inches)</label>
+        <label for = 'length'>Length of garden bed (inches)</label>
         <input
           type='text'
           id='length'
           value={length}
           onChange={(e) => setLength(e.target.value)}
         ></input>
-        <label>Width of garden bed (inches)</label>
+        <label for = 'width'>Width of garden bed (inches)</label>
         <input
           type='text'
           id='width'
