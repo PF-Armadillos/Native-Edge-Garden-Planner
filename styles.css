@@ -179,7 +179,7 @@ form labels */
 }
 
 .column {
-  width: 30%; /* Each column takes up roughly one-third of the width */
+  width: 33.33%; /* Each column takes up roughly one-third of the width */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border-radius: 5px;
