@@ -5,28 +5,6 @@ const plantDatabase = require('../../client/staticObject')
 
 const plantDataController = {};
 
-// //Function to write staticobject JS file to database. 
-// //Used only once
-// writePlants = async (obj) => {
-//   const { _id, State, Species, CommonName, Duration, Habit, Light, Water, Thumb} = obj;
-//   try {      
-//     const collection = await Plant.create({ 
-//       _id: _id,
-//     State: State,
-//     Species: Species,
-//     CommonName: CommonName,
-//     Duration: Duration,
-//     Habit: Habit,
-//     Light: Light,
-//     Water: Water,
-//     Thumb: Thumb
-//     });
-//   } catch (err) {
-//     console.log('Error', err)
-//   }
-// };
-
-// plantDatabase.map(writePlants);
 
 plantDataController.getPlants = async (req, res, next) => {
   try {

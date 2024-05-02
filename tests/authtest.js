@@ -3,6 +3,7 @@ const mockingoose = require('mockingoose');
 const User = require('../server/models/userModel');
 const server = require('../server/server')
 const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
 
 describe('Authentication with Bcrypt and Login', () => {
     

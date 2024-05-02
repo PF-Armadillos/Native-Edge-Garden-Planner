@@ -1,9 +1,12 @@
 const path = require('path');
 const express = require('express');
+const session = require('express-session');
+const Store = require('conect-mongo');
 require('dotenv').config();
 
 //user dependancies
 
+const MONGO_URI = process.env.MONGO_URI;
 const userRouter = require('./routes/userRoutes');
 const userController = require('./controllers/userController');
 const plantDataController = require('./controllers/plantDataController');
@@ -15,6 +18,21 @@ app.use(express.json());
 //app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, '../dist')));
+
+app.use(session({
+  secret: 'secretdevilchicken',
+  resave: false,
+  saveUninitialized: false,
+  store: new Store({
+    mongoUrl: MONGO_URI,
+    dbName: 'userDB',
+    collectionName: 'sessions'
+  }),
+  cookie: {
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60 * 24
+  }
+}))
 
 app.use('/user', userRouter);
 

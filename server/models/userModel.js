@@ -5,7 +5,7 @@ const MONGO_URI = process.env.MONGO_URI ;
 const SALT_WORK_FACTOR = 10;
 
 
-userConn = mongoose.createConnection(MONGO_URI,{dbName: 'userDB',});
+const userConn = mongoose.createConnection(MONGO_URI,{dbName: 'userDB',});
 
 const Schema = mongoose.Schema;
 console.log(MONGO_URI);
